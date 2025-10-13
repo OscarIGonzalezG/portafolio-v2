@@ -1,59 +1,48 @@
-# Portafolio
+# 🌐 Portafolio Profesional – Oscar Ignacio González
 
-This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 20.2.2.
+## 📌 Descripción del Proyecto
+Este es mi **portafolio profesional** desarrollado con **Angular v20** y **TailwindCSS**, creado para presentar mi perfil, experiencia, habilidades y proyectos personales como **Ingeniero en Informática**.
 
-## Development server
+El sitio fue diseñado con un enfoque moderno, responsivo y dinámico, utilizando animaciones suaves y una estructura basada en componentes reutilizables.  
+Toda la información (habilidades, proyectos, contacto, etc.) se gestiona mediante **archivos JSON locales**, sin necesidad de backend o base de datos.
 
-To start a local development server, run:
+---
 
-```bash
-ng serve
-```
+## 🧠 Tecnologías Utilizadas
 
-Once the server is running, open your browser and navigate to `http://localhost:4200/`. The application will automatically reload whenever you modify any of the source files.
+### 🖥️ Frontend
+- **Angular v20**
+- **TailwindCSS**
+- **HTML5**
+- **CSS3**
+- **TypeScript**
 
-## Code scaffolding
+### 📂 Gestión de Datos
+- Archivos **JSON locales** (sin backend)
 
-Angular CLI includes powerful code scaffolding tools. To generate a new component, run:
+---
 
-```bash
-ng generate component component-name
-```
+## 🚀 Características del Proyecto
+- 💡 **Desarrollado completamente en Angular (sin backend)**
+- 🎨 Interfaz moderna y limpia con **TailwindCSS**
+- ⚡ Animaciones suaves y componentes reutilizables
+- 🧩 Carga dinámica de datos desde archivos JSON
+- 📱 Diseño **responsive**, adaptable a cualquier dispositivo
+- 📄 Incluye opción para **descargar CV**
+- 🔗 Secciones de presentación, habilidades, proyectos y contacto
 
-For a complete list of available schematics (such as `components`, `directives`, or `pipes`), run:
+---
 
-```bash
-ng generate --help
-```
+## 👨‍💻 Autor
+**Oscar Ignacio González González**  
+📍 Santiago, Chile  
+📧 [ozkrgonzalez1201@gmail.com](mailto:ozkrgonzalez1201@gmail.com)  
+🔗 [LinkedIn](https://linkedin.com/in/oscar-ignacio-gonzalez-gonzalez-911369171)  
+💻 [GitHub](https://github.com/OscarIGonzalezG)  
+🌐 [Portafolio](https://oscarigonzalezg.github.io/oscargonzalez)
 
-## Building
+---
 
-To build the project run:
-
-```bash
-ng build
-```
-
-This will compile your project and store the build artifacts in the `dist/` directory. By default, the production build optimizes your application for performance and speed.
-
-## Running unit tests
-
-To execute unit tests with the [Karma](https://karma-runner.github.io) test runner, use the following command:
-
-```bash
-ng test
-```
-
-## Running end-to-end tests
-
-For end-to-end (e2e) testing, run:
-
-```bash
-ng e2e
-```
-
-Angular CLI does not come with an end-to-end testing framework by default. You can choose one that suits your needs.
-
-## Additional Resources
-
-For more information on using the Angular CLI, including detailed command references, visit the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
+## 🧾 Licencia
+Proyecto de uso **personal y educativo**.  
+No se permite su redistribución o uso comercial sin autorización del autor.
