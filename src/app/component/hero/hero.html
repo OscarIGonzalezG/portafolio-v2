@@ -1,0 +1,40 @@
+<section id="hero" class="min-h-screen flex flex-col md:flex-row items-center justify-center px-6 bg-primary text-primary relative py-21">
+
+  <!-- Lado izquierdo: texto -->
+  <div class="md:w-1/2 flex flex-col items-start text-left space-y-4 animate-fadeInUp">
+    <h1 class="text-5xl md:text-6xl font-bold">
+      Hola, soy <span class="text-accent">Oscar Ignacio González</span> 👋
+    </h1>
+    <p class="text-lg md:text-xl max-w-xl">
+      Soy <span class="font-semibold">Ingeniero en Informática</span> con interés en el <span class="font-semibold">desarrollo FullStack</span>.  
+      He trabajado en proyectos personales con <span class="font-semibold">Angular</span> y <span class="font-semibold">Java / Spring Boot</span>, comprendiendo el flujo completo de una aplicación web.  
+      Actualmente me encuentro aprendiendo <span class="font-semibold">NestJS</span> para fortalecer mis habilidades en backend y seguir creciendo como desarrollador.
+    </p>
+
+    <!-- Botones -->
+    <div class="flex flex-wrap gap-4 mt-4">
+      <a href="#projects"
+         class="px-5 py-3 rounded-lg bg-gradient-to-r from-accent to-accent-hover text-primary font-semibold shadow-md hover:scale-105 transform transition">
+        📂 Ver Proyectos
+      </a>
+      <a href="assets/CV_OscarGonzalez.pdf" download
+         class="px-5 py-3 rounded-lg bg-gradient-to-r from-secondary to-secondary-hover text-primary font-semibold shadow-md hover:scale-105 transform transition">
+        📑 Descargar CV
+      </a>
+      <a href="#contact"
+         class="px-5 py-3 rounded-lg border-2 border-accent text-accent font-semibold shadow-md hover:bg-accent hover:text-primary transform transition hover:scale-105">
+        ✉️ Contáctame
+      </a>
+    </div>
+  </div>
+
+  <!-- Lado derecho: imagen circular con glow pulse -->
+  <div class="md:w-1/2 flex justify-center mt-8 md:mt-0 relative">
+    <div class="relative w-64 h-64 md:w-80 md:h-80 flex items-center justify-center animate-fadeInUp">
+      <div class="absolute inset-0 rounded-full glow-pulse"></div>
+      <img src="assets/images/yo.png" alt="Oscar González"
+          class="w-56 h-56 md:w-72 md:h-72 rounded-full object-cover border-4 border-accent shadow-lg relative z-10">
+    </div>
+  </div>
+
+</section>

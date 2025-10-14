@@ -1,0 +1,37 @@
+<section id="skills" class="py-20 bg-primary text-primary px-6">
+  <div class="max-w-6xl mx-auto">
+    <h2 class="text-4xl heading mb-12 text-center">Habilidades</h2>
+
+    <div class="grid gap-12 md:grid-cols-2">
+      <div *ngFor="let skill of skills" class="animate-fadeInUp">
+        <h3 class="text-2xl heading mb-6 text-highlight">{{ skill.category }}</h3>
+
+        <div class="flex flex-wrap gap-6">
+          <div *ngFor="let item of skill.items"
+               class="skill-card group relative w-24 h-24 flex flex-col items-center justify-center rounded-xl transition-all duration-300 overflow-hidden cursor-pointer"
+               (mousemove)="updateSpotlight($event, item.name)"
+               (mouseleave)="resetSpotlight(item.name)">
+            
+            <!-- Icono -->
+            <img [src]="'assets/icons/' + item.icon"
+                 [alt]="item.name"
+                 class="w-12 h-12 transition-transform duration-300 group-hover:scale-125 z-10" />
+
+            <!-- Nombre -->
+            <span class="text-xs mt-2 text-secondary z-10">{{ item.name }}</span>
+
+            <!-- Efecto de luz dinámico -->
+            <div class="absolute inset-0 pointer-events-none transition-opacity duration-300"
+                 [ngStyle]="{
+                   'background': spotlightPositions[item.name] 
+                     ? 'radial-gradient(circle 80px at ' + spotlightPositions[item.name].x + 'px ' + spotlightPositions[item.name].y + 'px, rgba(79,151,255,0.3), transparent 80%)'
+                     : 'none',
+                   'opacity': spotlightPositions[item.name] ? '1' : '0'
+                 }">
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

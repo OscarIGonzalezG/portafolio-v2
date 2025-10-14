@@ -1,0 +1,26 @@
+[
+  {
+    "id": 1,
+    "title": "Gestor de Inventario Solidario",
+    "description": "Aplicación web para administrar donaciones y alfolíes, con control de usuarios y reportes.",
+    "image": "assets/proyecto-inventario.png",
+    "github": "https://github.com/tuusuario/inventario-solidario",
+    "demo": "https://demo.com/inventario-solidario"
+  },
+  {
+    "id": 2,
+    "title": "Portafolio Web Personal",
+    "description": "Landing page moderna construida con Angular y Tailwind, con sección de proyectos y contacto.",
+    "image": "assets/proyecto-portafolio.png",
+    "github": "https://github.com/tuusuario/portafolio-web",
+    "demo": "https://tuportafolio.com"
+  },
+  {
+    "id": 3,
+    "title": "Juego 2D Pixel Art",
+    "description": "Juego en 2D con gráficos pixel art, controles intuitivos y animaciones personalizadas.",
+    "image": "assets/proyecto-juego.png",
+    "github": "https://github.com/tuusuario/juego-2d",
+    "demo": "https://demo.com/juego-2d"
+  }
+]

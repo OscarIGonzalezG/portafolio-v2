@@ -1,0 +1,72 @@
+<!-- Navbar fijo -->
+<nav class="fixed top-0 left-0 w-full bg-primary text-primary shadow-md z-50">
+  <div class="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
+    <div class="text-2xl font-bold heading">
+      Oscar González
+    </div>
+
+    <!-- Menú Desktop -->
+    <ul class="hidden md:flex space-x-8 text-lg">
+      <li><a (click)="scrollTo('hero')" class="menu-link cursor-pointer">Inicio</a></li>
+      <li><a (click)="scrollTo('about')" class="menu-link cursor-pointer">Sobre mí</a></li>
+      <li><a (click)="scrollTo('experience')" class="menu-link cursor-pointer">Experiencia</a></li>
+      <li><a (click)="scrollTo('skills')" class="menu-link cursor-pointer">Habilidades</a></li>
+      <li><a (click)="scrollTo('projects')" class="menu-link cursor-pointer">Proyectos</a></li>
+      <li><a (click)="scrollTo('contact')" class="menu-link cursor-pointer">Contacto</a></li>
+    </ul>
+
+    <!-- Botón hamburguesa -->
+    <button 
+      class="md:hidden w-10 h-10 flex flex-col justify-center items-center space-y-1.5 focus:outline-none z-50"
+      (click)="toggleMenu()"
+    >
+      <span class="block w-8 h-0.5 bg-white transform transition duration-500"
+            [ngClass]="{ 'rotate-45 translate-y-2': isMenuOpen }"></span>
+      <span class="block w-8 h-0.5 bg-white transition duration-500"
+            [ngClass]="{ 'opacity-0': isMenuOpen }"></span>
+      <span class="block w-8 h-0.5 bg-white transform transition duration-500"
+            [ngClass]="{ '-rotate-45 -translate-y-2': isMenuOpen }"></span>
+    </button>
+  </div>
+</nav>
+
+<!-- Overlay con blur + efecto linterna mejorado -->
+<div 
+  *ngIf="isMenuOpen"
+  class="fixed inset-0 z-40 transition-opacity duration-500 pointer-events-auto"
+  (click)="toggleMenu()"
+  (mousemove)="updateLight($event)"
+  [ngStyle]="{
+    'background': lightGradient,
+    'backdrop-filter': 'blur(10px)',
+    'transition': 'background 0.2s ease'
+  }"
+></div>
+
+
+<!-- Menú móvil deslizante -->
+<div 
+  class="fixed top-0 right-0 h-full w-full bg-primary/95 z-45 flex flex-col items-center justify-center transform transition-transform duration-500 md:hidden"
+  [ngClass]="{ 'translate-x-0': isMenuOpen, 'translate-x-full': !isMenuOpen }"
+>
+  <ul class="text-center space-y-6 text-2xl">
+    <li class="transition-transform duration-300" [ngClass]="isMenuOpen ? 'translate-y-0 opacity-100' : 'translate-y-4 opacity-0'">
+      <a (click)="scrollTo('hero'); toggleMenu()" class="menu-link cursor-pointer">Inicio</a>
+    </li>
+    <li class="transition-transform duration-300 delay-75" [ngClass]="isMenuOpen ? 'translate-y-0 opacity-100' : 'translate-y-4 opacity-0'">
+      <a (click)="scrollTo('about'); toggleMenu()" class="menu-link cursor-pointer">Sobre mí</a>
+    </li>
+    <li class="transition-transform duration-300 delay-150" [ngClass]="isMenuOpen ? 'translate-y-0 opacity-100' : 'translate-y-4 opacity-0'">
+      <a (click)="scrollTo('experience'); toggleMenu()" class="menu-link cursor-pointer">Experiencia</a>
+    </li>
+    <li class="transition-transform duration-300 delay-200" [ngClass]="isMenuOpen ? 'translate-y-0 opacity-100' : 'translate-y-4 opacity-0'">
+      <a (click)="scrollTo('skills'); toggleMenu()" class="menu-link cursor-pointer">Habilidades</a>
+    </li>
+    <li class="transition-transform duration-300 delay-250" [ngClass]="isMenuOpen ? 'translate-y-0 opacity-100' : 'translate-y-4 opacity-0'">
+      <a (click)="scrollTo('projects'); toggleMenu()" class="menu-link cursor-pointer">Proyectos</a>
+    </li>
+    <li class="transition-transform duration-300 delay-300" [ngClass]="isMenuOpen ? 'translate-y-0 opacity-100' : 'translate-y-4 opacity-0'">
+      <a (click)="scrollTo('contact'); toggleMenu()" class="menu-link cursor-pointer">Contacto</a>
+    </li>
+  </ul>
+</div>

@@ -1,0 +1,52 @@
+[
+  {
+    "category": "Frontend",
+    "items": [
+      { "name": "Angular", "icon": "angular.svg" },
+      { "name": "HTML5", "icon": "html5.svg" },
+      { "name": "CSS3", "icon": "css3.svg" },
+      { "name": "TypeScript", "icon": "typescript.svg" },
+      { "name": "JavaScript", "icon": "javascript.svg" },
+      { "name": "TailwindCSS", "icon": "tailwind.svg" }
+    ]
+  },
+  {
+    "category": "Backend",
+    "items": [
+      { "name": "Java", "icon": "java.svg" },
+      { "name": "Spring Boot", "icon": "spring.svg" },
+      { "name": "Node.js", "icon": "node-js.svg" },
+      { "name": "NestJS", "icon": "nestjs.svg" }
+    ]
+  },
+  {
+    "category": "Bases de Datos",
+    "items": [
+      { "name": "PostgreSQL", "icon": "postgresql.svg" },
+      { "name": "MySQL", "icon": "mysql.svg" }
+    ]
+  },
+  {
+    "category": "Game Development",
+    "items": [
+      { "name": "Unity", "icon": "unity.svg" },
+      { "name": "C#", "icon": "csharp.svg" }
+    ]
+  },
+  {
+    "category": "Herramientas",
+    "items": [
+      { "name": "Git", "icon": "git.svg" },
+      { "name": "GitHub", "icon": "github.svg" },
+      { "name": "Postman", "icon": "postman.svg" }
+    ]
+  },
+  {
+    "category": "Entornos de Desarrollo",
+    "items": [
+      { "name": "VS Code", "icon": "visual-studio-code.svg" },
+      { "name": "IntelliJ IDEA", "icon": "intellij-idea.svg" },
+      { "name": "Visual Studio", "icon": "visual-studio.svg" }
+    ]
+  }
+]
