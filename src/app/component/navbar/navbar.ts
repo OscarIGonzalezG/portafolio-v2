@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, Renderer2 } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { Router } from '@angular/router'; 
 
@@ -7,10 +7,11 @@ import { Router } from '@angular/router';
   standalone: true,
   imports: [CommonModule],
   templateUrl: './navbar.html',
-  styleUrl: './navbar.css'
+  styleUrls: ['./navbar.css']
 })
 export class Navbar {
   isMenuOpen = false;
+  isDarkMode = true;
 
   menuLinks = [
     { label: 'Inicio', id: 'hero' },
@@ -21,16 +22,13 @@ export class Navbar {
     { label: 'Contacto', id: 'contact' }
   ];
 
-  // Gradiente inicial centrado, más visible
   lightGradient = 'radial-gradient(circle at 50% 50%, rgba(255,255,255,0.15) 0%, rgba(0,0,0,0.85) 80%)';
 
-  constructor(private router: Router) {}
+  constructor(private router: Router, private renderer: Renderer2) {}
 
   toggleMenu() {
     this.isMenuOpen = !this.isMenuOpen;
-
     if (!this.isMenuOpen) {
-      // reset a centro al cerrar
       this.lightGradient = 'radial-gradient(circle at 50% 50%, rgba(255,255,255,0.15) 0%, rgba(0,0,0,0.85) 80%)';
     }
   }
@@ -56,7 +54,16 @@ export class Navbar {
       y = (event.touches[0].clientY / window.innerHeight) * 100;
     }
 
-    // Gradiente más visible tipo linterna
     this.lightGradient = `radial-gradient(circle at ${x}% ${y}%, rgba(255,255,255,0.25) 0%, rgba(0,0,0,0.85) 80%)`;
+  }
+
+  toggleTheme() {
+    this.isDarkMode = !this.isDarkMode;
+    const body = document.body;
+    if (this.isDarkMode) {
+      this.renderer.removeClass(body, 'light');
+    } else {
+      this.renderer.addClass(body, 'light');
+    }
   }
 }
