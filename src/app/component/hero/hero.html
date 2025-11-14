@@ -1,37 +1,24 @@
-<section id="hero" class="min-h-screen flex flex-col md:flex-row items-center justify-center px-6 bg-primary text-primary relative py-20">
+<section id="hero" class="relative min-h-screen flex items-center justify-center overflow-hidden text-primary px-6 pt-28 sm:pt-36">
+  <!-- 🎇 Fondo animado -->
+  <canvas id="networkCanvas" class="absolute inset-0 w-full h-full"></canvas>
 
-  <!-- Texto a la izquierda -->
-  <div class="md:w-1/2 flex flex-col items-start text-left space-y-6 animate-fadeInUp">
-    <h1 class="text-5xl md:text-6xl font-bold">
-      Hago que tu negocio <span class="text-accent">brille online</span> ✨
+  <!-- 📦 Contenido centrado -->
+  <div class="relative z-10 w-full max-w-4xl mx-auto text-center space-y-6">
+    <!-- ✍️ Typewriter (solo el título) -->
+    <h1 class="text-5xl md:text-6xl font-bold leading-tight">
+      <span class="typewriter text-accent"></span>
     </h1>
-    <p class="text-lg md:text-xl max-w-xl">
-      Creo sitios web **personalizados, atractivos y funcionales**, además de brindar soporte técnico para que tu negocio siempre esté en línea y creciendo.  
-      Más que páginas web, entrego soluciones que <span class="font-semibold">conectan con tus clientes y aumentan tus ventas</span>.
+
+    <!-- Párrafo aparece de inmediato (sin animaciones) -->
+    <p class="text-lg md:text-xl text-secondary">
+      Fusiono el desarrollo web con la gestión y soporte tecnológico para crear soluciones que realmente funcionan.
     </p>
 
-    <!-- Botones CTA -->
-    <div class="flex flex-wrap gap-4 mt-6">
-      <a href="#projects"
-         class="px-5 py-3 rounded-full bg-gradient-to-r from-accent to-accent-hover text-primary font-semibold shadow-md hover:scale-105 transform transition-all">
-        📂 Ver Proyectos
-      </a>
-      <a href="#contact"
-         class="px-5 py-3 rounded-full border-2 border-accent text-accent font-semibold shadow-md hover:bg-accent hover:text-primary transform transition-all hover:scale-105">
-        ✉️ Solicita tu sitio
-      </a>
+    <!-- 🔘 Botones -->
+    <div class="mt-4 flex flex-wrap gap-4 justify-center">
+      <a href="#projects" class="px-5 py-3 rounded-full bg-gradient-to-r from-accent to-accent-hover text-primary font-semibold shadow-md hover:scale-105 transition-all">🚀 Ver proyectos</a>
+      <a href="#contact" class="px-5 py-3 rounded-full border-2 border-accent text-accent font-semibold shadow-md hover:bg-accent hover:text-primary transition-all hover:scale-105">✉️ Contáctame</a>
+      <a href="assets/CV_OscarGonzalez.pdf" download class="px-5 py-3 rounded-full border-2 border-accent text-accent font-semibold shadow-md hover:bg-accent hover:text-primary transition-all hover:scale-105">📄 Descargar CV</a>
     </div>
   </div>
-
-  <!-- Mockup de computadora / pantalla de sitio web -->
-  <div class="md:w-1/2 flex justify-center mt-10 md:mt-0 relative animate-fadeInUp">
-    <div class="relative w-72 h-48 md:w-96 md:h-64 flex items-center justify-center">
-      <!-- Glow pulse para destacar el mockup -->
-      <div class="absolute inset-0 rounded-2xl glow-pulse"></div>
-      <!-- Imagen mockup: reemplaza src con tu diseño de sitio web -->
-      <img src="assets/images/mockup-site.png" alt="Mockup sitio web"
-           class="w-full h-full rounded-2xl object-cover border-4 border-accent shadow-lg relative z-10">
-    </div>
-  </div>
-
 </section>

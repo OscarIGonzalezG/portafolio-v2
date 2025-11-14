@@ -1,52 +1,46 @@
 [
   {
     "category": "Frontend",
+    "icon": "frontend.png",
     "items": [
-      { "name": "Angular", "icon": "angular.svg" },
-      { "name": "HTML5", "icon": "html5.svg" },
-      { "name": "CSS3", "icon": "css3.svg" },
-      { "name": "TypeScript", "icon": "typescript.svg" },
-      { "name": "JavaScript", "icon": "javascript.svg" },
-      { "name": "TailwindCSS", "icon": "tailwind.svg" }
+      { "name": "HTML5", "icon": "html5.svg", "description": "Base esencial para estructurar contenido web moderno." },
+      { "name": "CSS3", "icon": "css3.svg", "description": "Estilos, layouts y diseño responsivo de alta calidad." },
+      { "name": "Angular", "icon": "angular.svg", "description": "Framework escalable para SPAs empresariales." },
+      { "name": "JavaScript", "icon": "javascript.svg", "description": "Lenguaje fundamental para interacción en la web." },
+      { "name": "TypeScript", "icon": "typescript.svg", "description": "Tipado fuerte para proyectos mantenibles y robustos." },
+      { "name": "TailwindCSS", "icon": "tailwind.svg", "description": "Framework basado en utilidades para UI moderna y eficiente." }
     ]
   },
   {
     "category": "Backend",
+    "icon": "backend.png",
     "items": [
-      { "name": "Java", "icon": "java.svg" },
-      { "name": "Spring Boot", "icon": "spring.svg" },
-      { "name": "Node.js", "icon": "node-js.svg" },
-      { "name": "NestJS", "icon": "nestjs.svg" }
+      { "name": "Java", "icon": "java.svg", "description": "Lenguaje robusto y multiplataforma para sistemas complejos." },
+      { "name": "Spring Boot", "icon": "spring.svg", "description": "Framework que facilita la creación de APIs escalables." }
     ]
   },
   {
     "category": "Bases de Datos",
+    "icon": "database.png",
     "items": [
-      { "name": "PostgreSQL", "icon": "postgresql.svg" },
-      { "name": "MySQL", "icon": "mysql.svg" }
-    ]
-  },
-  {
-    "category": "Game Development",
-    "items": [
-      { "name": "Unity", "icon": "unity.svg" },
-      { "name": "C#", "icon": "csharp.svg" }
+      { "name": "PostgreSQL", "icon": "postgresql.svg", "description": "Motor SQL poderoso, confiable y totalmente open-source." }
     ]
   },
   {
     "category": "Herramientas",
+    "icon": "tools.png",
     "items": [
-      { "name": "Git", "icon": "git.svg" },
-      { "name": "GitHub", "icon": "github.svg" },
-      { "name": "Postman", "icon": "postman.svg" }
+      { "name": "Git", "icon": "git.svg", "description": "Control de versiones distribuido para desarrollo profesional." },
+      { "name": "GitHub", "icon": "github.svg", "description": "Plataforma para gestionar repositorios y colaboración." },
+      { "name": "Postman", "icon": "postman.svg", "description": "Suite para probar, depurar y documentar APIs." }
     ]
   },
   {
     "category": "Entornos de Desarrollo",
+    "icon": "ide.png",
     "items": [
-      { "name": "VS Code", "icon": "visual-studio-code.svg" },
-      { "name": "IntelliJ IDEA", "icon": "intellij-idea.svg" },
-      { "name": "Visual Studio", "icon": "visual-studio.svg" }
+      { "name": "VS Code", "icon": "visual-studio-code.svg", "description": "Editor rápido, modular y preferido por los desarrolladores." },
+      { "name": "IntelliJ IDEA", "icon": "intellij-idea.svg", "description": "IDE completo para desarrollo Java profesional." }
     ]
   }
 ]

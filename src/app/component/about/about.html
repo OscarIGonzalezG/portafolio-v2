@@ -1,33 +1,45 @@
-<section id="about" class="py-20 bg-secondary text-primary px-6">
-  <div class="max-w-5xl mx-auto flex flex-col md:flex-row items-center gap-10">
+<section id="about" class="relative py-30 bg-secondary text-primary px-6 overflow-hidden">
+  <div class="max-w-6xl mx-auto flex flex-col md:flex-row items-center gap-12">
 
-    <!-- Imagen -->
-    <div class="flex-shrink-0 rounded-full overflow-hidden border-4 border-accent shadow-lg animate-fadeInLeft relative group">
-      <img src="assets/images/about.png" alt="Oscar González" 
-           class="max-w-[180px] md:max-w-[220px] rounded-full transition-transform duration-500 group-hover:scale-110">
-      <div class="absolute inset-0 rounded-full border-4 border-accent blur-md opacity-60 group-hover:opacity-100 transition-opacity duration-500"></div>
+    <!-- 🖼️ Imagen redonda -->
+    <div class="relative group flex-shrink-0 rounded-full overflow-hidden border-4 border-accent/60 shadow-xl">
+      <img
+        src="assets/images/yo.png"
+        alt="Oscar González"
+        class="w-[220px] md:w-[260px] rounded-full object-cover transition-transform duration-700 group-hover:scale-105"
+      />
     </div>
 
-    <!-- Texto About -->
-    <div class="flex-1 space-y-4">
-      <h2 class="text-4xl heading mb-4 animate-fadeInUp">Sobre mí</h2>
+    <!-- 🧠 Texto profesional -->
+    <div class="flex-1 space-y-6 md:text-left text-center">
+      <h2 class="text-4xl md:text-5xl font-bold mb-4">Sobre mí</h2>
 
-      <p class="body text-secondary animate-fadeInUp delay-200">
-        Soy <span class="text-accent font-semibold">Ingeniero en Informática</span> con experiencia en soporte técnico, administración de sistemas y actualmente enfocado en el <span class="text-accent font-semibold">desarrollo web FullStack</span>.  
-        He trabajado en empresas como <span class="text-accent font-semibold">Medipass</span>, <span class="text-accent font-semibold">Vigatec</span> y <span class="text-accent font-semibold">Adexus</span>, donde fortalecí mis habilidades técnicas y de resolución de problemas.
+      <p class="text-secondary leading-relaxed">
+        Soy <span class="text-accent font-semibold">Ingeniero y Técnico en Informática</span>, con una formación sólida en
+        el análisis y desarrollo de sistemas, y una visión integral que me permite conectar la tecnología con las
+        necesidades reales de las personas y organizaciones.
       </p>
 
-      <p class="body text-secondary animate-fadeInUp delay-400">
-        Desarrollé proyectos personales con <span class="text-accent font-semibold">Angular</span>, <span class="text-accent font-semibold">Java / Spring Boot</span> y <span class="text-accent font-semibold">PostgreSQL</span>, y actualmente amplío mis conocimientos en <span class="text-accent font-semibold">NestJS</span> para backend.  
-        También tengo bases en <span class="text-accent font-semibold">C# y Unity</span>, lo que refuerza mi lógica y pensamiento estructurado.
+      <p class="text-secondary leading-relaxed">
+        Mi enfoque está en ofrecer <span class="text-accent font-semibold">soluciones eficientes y escalables</span>,
+        combinando la experiencia técnica adquirida en soporte TI y la implementación de proyectos de desarrollo web con
+        <span class="text-accent font-semibold">Angular</span>,
+        <span class="text-accent font-semibold">Java Spring Boot</span> y
+        <span class="text-accent font-semibold">PostgreSQL</span>.
       </p>
 
-      <p class="body text-secondary animate-fadeInUp delay-600">
-        Me defino como una persona <span class="text-accent font-semibold">proactiva, adaptable y en constante aprendizaje</span>, comprometida con seguir creciendo en el desarrollo de software y aportar valor a cada proyecto.
+      <p class="text-secondary leading-relaxed">
+        Disfruto trabajar en entornos donde la tecnología se transforma en una herramienta de impacto, creando
+        interfaces funcionales o resolviendo problemas de infraestructura. Mi objetivo es seguir creciendo como
+        profesional y aportar valor real en cada proyecto que desarrollo.
       </p>
 
-      <a href="#projects" class="inline-block mt-4 px-6 py-3 rounded-xl bg-accent text-primary font-medium shadow-lg transition-transform transform hover:scale-110 hover:shadow-accent animate-fadeInUp delay-800">
-        Ver proyectos
+      <!-- ✨ BOTÓN NUEVO -->
+      <a
+        href="#skills"
+        class="inline-block mt-4 px-8 py-3 rounded-xl bg-accent text-primary font-medium shadow-lg hover:scale-105 transition-transform duration-300 hover:shadow-accent/50"
+      >
+        ✨ Conoce mis habilidades
       </a>
     </div>
   </div>

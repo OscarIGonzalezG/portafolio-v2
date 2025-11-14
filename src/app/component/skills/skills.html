@@ -1,37 +1,99 @@
-<section id="skills" class="py-20 bg-primary text-primary px-6">
-  <div class="max-w-6xl mx-auto">
-    <h2 class="text-4xl heading mb-12 text-center">Habilidades</h2>
+<section id="skills" class="py-24 bg-secondary px-6">
+  <div class="max-w-6xl mx-auto text-center">
 
-    <div class="grid gap-12 md:grid-cols-2">
-      <div *ngFor="let skill of skills" class="animate-fadeInUp">
-        <h3 class="text-2xl heading mb-6 text-highlight">{{ skill.category }}</h3>
+    <h2 class="text-4xl md:text-5xl heading mb-4">Habilidades</h2>
+    <p class="text-secondary max-w-2xl mx-auto mb-10 text-sm md:text-base">
+      Tecnologías y herramientas que utilizo para construir soluciones web completas, desde el frontend
+      hasta el backend y el flujo de trabajo diario.
+    </p>
 
-        <div class="flex flex-wrap gap-6">
-          <div *ngFor="let item of skill.items"
-               class="skill-card group relative w-24 h-24 flex flex-col items-center justify-center rounded-xl transition-all duration-300 overflow-hidden cursor-pointer"
-               (mousemove)="updateSpotlight($event, item.name)"
-               (mouseleave)="resetSpotlight(item.name)">
-            
-            <!-- Icono -->
-            <img [src]="'assets/icons/' + item.icon"
-                 [alt]="item.name"
-                 class="w-12 h-12 transition-transform duration-300 group-hover:scale-125 z-10" />
+    <!-- Filtros -->
+    <div class="flex flex-wrap justify-center gap-3 mb-12">
 
-            <!-- Nombre -->
-            <span class="text-xs mt-2 text-secondary z-10">{{ item.name }}</span>
+      <button
+        class="skill-filter"
+        [ngClass]="{ 'active': activeCategory === 'Todo' }"
+        (click)="applyFilter('Todo')">
+        <span class="text-sm">Todo</span>
+      </button>
 
-            <!-- Efecto de luz dinámico -->
-            <div class="absolute inset-0 pointer-events-none transition-opacity duration-300"
-                 [ngStyle]="{
-                   'background': spotlightPositions[item.name] 
-                     ? 'radial-gradient(circle 80px at ' + spotlightPositions[item.name].x + 'px ' + spotlightPositions[item.name].y + 'px, rgba(79,151,255,0.3), transparent 80%)'
-                     : 'none',
-                   'opacity': spotlightPositions[item.name] ? '1' : '0'
-                 }">
+      <button
+        *ngFor="let category of skills"
+        class="skill-filter"
+        [ngClass]="{ 'active': activeCategory === category.category }"
+        (click)="applyFilter(category.category)">
+        <img
+          [src]="'assets/icons/' + category.icon"
+          [alt]="category.category"
+          class="w-5 h-5 mr-2 object-contain" />
+        <span class="text-sm">{{ category.category }}</span>
+      </button>
+
+    </div>
+
+    <!-- Grid -->
+    <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-8 justify-items-center">
+
+      <div
+        *ngFor="let skill of filteredSkills"
+        class="flip-card skill-fade-in"
+        [ngClass]="{ 'flipped': isFlipped(skill.name) }"
+        [ngStyle]="getTiltStyle(skill.name)"
+        (click)="toggleFlip(skill.name)"
+        (mousemove)="onTilt($event, skill.name)"
+        (mouseleave)="resetTilt(skill.name); resetSpotlight(skill.name)"
+      >
+
+        <div class="flip-inner">
+
+          <!-- ======================= -->
+          <!--        F R E N T E       -->
+          <!-- ======================= -->
+          <div class="flip-front">
+
+            <!-- ⭐ Spotlight FUERA del inner -->
+            <div
+              class="spotlight"
+              [ngStyle]="{
+                'background': spotlightPositions[skill.name]
+                  ? 'radial-gradient(circle 95px at '
+                    + spotlightPositions[skill.name].x + 'px '
+                    + spotlightPositions[skill.name].y + 'px, rgba(61,139,255,0.35), transparent 80%)'
+                  : 'none',
+                'opacity': spotlightPositions[skill.name] ? '1' : '0'
+              }">
+            </div>
+
+            <!-- Contenido principal -->
+            <div class="skill-card-inner">
+
+              <img
+                [src]="'assets/icons/' + skill.icon"
+                [alt]="skill.name"
+                class="skill-icon"
+                [ngClass]="{ 'force-white': isDarkIcon(skill.name) }"
+              />
+
+              <span class="skill-name">
+                {{ skill.name }}
+              </span>
+
             </div>
           </div>
+
+          <!-- ======================= -->
+          <!--       R E V E R S O      -->
+          <!-- ======================= -->
+          <div class="flip-back">
+            <p class="skill-description">
+              {{ skill.description }}
+            </p>
+          </div>
+
         </div>
       </div>
+
     </div>
+
   </div>
 </section>

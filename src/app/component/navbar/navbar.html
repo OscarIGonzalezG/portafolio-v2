@@ -1,73 +1,57 @@
-<!-- Navbar cápsula premium -->
-<nav class="fixed top-4 left-1/2 transform -translate-x-1/2 w-11/12 md:w-3/4 bg-primary/95 text-primary shadow-2xl rounded-3xl backdrop-blur-md z-50 transition-all duration-300 nav-glow animate-slideDownFade">
-  <div class="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
+<!-- 🌟 Navbar -->
+<nav
+  class="fixed top-4 left-1/2 -translate-x-1/2 w-11/12 md:w-3/5 bg-[#0D0F18]/85 backdrop-blur-md text-primary shadow-2xl rounded-2xl z-[60] transition-all duration-300 nav-glow animate-slideDownFade">
+  <div class="max-w-7xl mx-auto px-7 py-3 flex justify-between items-center">
     
-    <!-- Logo circular más pequeño y legible -->
-    <div class="flex items-center">
-      <div class="w-12 h-12 md:w-14 md:h-14 rounded-full overflow-hidden border-2 border-accent flex items-center justify-center hover:scale-105 transition-transform duration-300">
-        <img src="assets/images/Logo.png" alt="Logo Oscar González" 
-             class="w-12 h-12 md:w-14 md:h-14 object-cover">
+    <!-- Logo -->
+    <div class="flex items-center group cursor-pointer" (click)="scrollTo('hero')">
+      <div class="w-10 h-10 md:w-12 md:h-12 flex items-center justify-center relative transition-transform duration-500 group-hover:scale-110">
+        <img src="assets/images/Logo.png" alt="Logo Oscar González"
+             class="w-full h-full object-contain drop-shadow-[0_0_10px_rgba(79,151,255,0.5)] transition-all duration-500 group-hover:drop-shadow-[0_0_20px_rgba(79,151,255,0.8)]">
       </div>
     </div>
 
     <!-- Menú Desktop -->
     <ul class="hidden md:flex space-x-8 text-lg">
       <li *ngFor="let link of menuLinks">
-        <a (click)="scrollTo(link.id)" 
-           class="menu-link cursor-pointer transition-all duration-300 animate-hoverPulse">
+        <a (click)="scrollTo(link.id)" class="menu-link-simple cursor-pointer transition-all duration-300">
           {{ link.label }}
         </a>
       </li>
     </ul>
-
-    <!-- Controles -->
-    <div class="flex items-center space-x-4">
-      <!-- Toggle tema -->
-      <button (click)="toggleTheme()"
-              class="w-10 h-10 rounded-full flex items-center justify-center bg-accent hover:bg-accent-hover text-primary transition-colors duration-300">
-        <span *ngIf="isDarkMode">🌞</span>
-        <span *ngIf="!isDarkMode">🌙</span>
-      </button>
-
-      <!-- Botón hamburguesa -->
-      <button class="md:hidden w-10 h-10 flex flex-col justify-center items-center space-y-1.5 focus:outline-none z-50"
-              (click)="toggleMenu()">
-        <span class="block w-8 h-0.5 bg-current transform transition duration-500"
-              [ngClass]="{ 'rotate-45 translate-y-2': isMenuOpen }"></span>
-        <span class="block w-8 h-0.5 bg-current transition duration-500"
-              [ngClass]="{ 'opacity-0': isMenuOpen }"></span>
-        <span class="block w-8 h-0.5 bg-current transform transition duration-500"
-              [ngClass]="{ '-rotate-45 -translate-y-2': isMenuOpen }"></span>
-      </button>
-    </div>
   </div>
 </nav>
 
-<!-- Overlay menú móvil -->
+<!-- 🍔 Botón flotante SOLO en mobile -->
+<button
+  class="md:hidden fixed top-[1.4rem] right-[1.4rem] w-12 h-12 flex flex-col justify-center items-center 
+         space-y-1.5 bg-accent text-primary rounded-full shadow-xl hover:scale-110 transition-all duration-300 
+         z-[90]"
+  (click)="toggleMenu()">
+  <span class="block w-7 h-0.5 bg-current transform transition duration-500"
+    [ngClass]="{ 'rotate-45 translate-y-2': isMenuOpen }"></span>
+  <span class="block w-7 h-0.5 bg-current transition duration-500"
+    [ngClass]="{ 'opacity-0': isMenuOpen }"></span>
+  <span class="block w-7 h-0.5 bg-current transform transition duration-500"
+    [ngClass]="{ '-rotate-45 -translate-y-2': isMenuOpen }"></span>
+</button>
+
+<!-- Overlay -->
 <div *ngIf="isMenuOpen"
-     class="fixed inset-0 z-40 transition-opacity duration-500 pointer-events-auto"
-     (click)="toggleMenu()"
-     (mousemove)="updateLight($event)"
-     [ngStyle]="{
-       'background': isDarkMode ? 'rgba(13,15,24,0.7)' : 'rgba(244,244,249,0.7)',
-       'backdrop-filter': 'blur(10px)',
-       'transition': 'background 0.2s ease'
-     }">
+     class="menu-overlay fixed inset-0 bg-black/60 z-[45] transition-opacity duration-500"
+     (click)="toggleMenu()">
 </div>
 
-<!-- Menú móvil deslizante -->
-<div class="fixed top-0 right-0 h-full w-full z-45 flex flex-col items-center justify-center transform transition-transform duration-500 md:hidden"
-     [ngClass]="{
-       'translate-x-0 bg-primary/95': isMenuOpen,
-       'translate-x-full': !isMenuOpen
-     }">
-  <ul class="text-center space-y-6 text-2xl">
-    <li *ngFor="let link of menuLinks; let i = index"
-        class="transition-transform duration-300"
-        [ngClass]="isMenuOpen ? 'translate-y-0 opacity-100 animate-hoverPulse' : 'translate-y-4 opacity-0'"
-        [style.transitionDelay]="(i*75)+'ms'">
+<!-- Sidebar -->
+<div
+  class="menu-sidebar fixed top-0 right-0 h-full w-[80%] sm:w-[60%] md:w-[45%] bg-[#0D0F18] shadow-2xl border-l border-accent/20 rounded-l-2xl z-[60] transform transition-transform duration-500 md:hidden flex flex-col items-center justify-center"
+  [ngClass]="{ 'translate-x-0': isMenuOpen, 'translate-x-full': !isMenuOpen }"
+  (click)="$event.stopPropagation()">
+
+  <ul class="flex flex-col items-start gap-6 text-xl font-semibold mt-10 pl-10 w-full">
+    <li *ngFor="let link of menuLinks" class="menu-item w-full">
       <a (click)="scrollTo(link.id); toggleMenu()" 
-         class="menu-link cursor-pointer transition-colors duration-300">
+         class="menu-link-simple inline-block pb-1 relative cursor-pointer transition-all duration-300 hover:text-accent">
         {{ link.label }}
       </a>
     </li>
