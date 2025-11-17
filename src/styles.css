@@ -676,3 +676,26 @@ nav.backdrop-blur-md {
   border-color: var(--accent-blue);
 }
 
+/* 📱 MOBILE FIX PARA FLECHAS DEL SLIDER */
+@media (max-width: 640px) {
+
+  /* Reposicionar flechas centradas */
+  .gallery-nav {
+    top: 40% !important;   /* en vez de 50% */
+    transform: translateY(-50%) !important;
+    font-size: 1.7rem !important;
+    padding: 0.2rem 0.5rem !important;
+  }
+
+  /* Ajustar tamaño y padding del contenedor */
+  .gallery-main {
+    padding: 8px !important;
+  }
+
+  /* Imagen ajustada (ya agregado antes) */
+  .gallery-main-img {
+    height: auto !important;
+    max-height: 60vh !important;
+    object-fit: contain !important;
+  }
+}

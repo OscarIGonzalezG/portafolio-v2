@@ -8,7 +8,10 @@
         *ngFor="let project of projects"
         class="project-card group"
         (mousemove)="onTilt($event, project.id)"
-        (mouseleave)="resetTilt(project.id); resetSpotlight(project.id)"
+        (mouseleave)="resetTilt(project.id)"
+        (touchstart)="onTouchStart()"
+        (touchmove)="onTouchTilt($event, project.id)"
+        (touchend)="onTouchEnd(project.id)"
         (click)="goToDetail(project.id)"
       >
 
