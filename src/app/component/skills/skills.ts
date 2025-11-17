@@ -14,11 +14,6 @@ interface SkillCategory {
   items: SkillItem[];
 }
 
-interface TiltState {
-  rotX: number;
-  rotY: number;
-}
-
 
 @Component({
   selector: 'app-skills',
@@ -28,17 +23,19 @@ interface TiltState {
   styleUrl: './skills.css'
 })
 
-export class Skills implements OnInit{
+export class Skills implements OnInit {
 
-skills: SkillCategory[] = [];
+  skills: SkillCategory[] = [];
   filteredSkills: SkillItem[] = [];
   activeCategory: string = 'Todo';
 
-  spotlightPositions: { [key: string]: { x: number; y: number } } = {};
-  tiltStates: { [key: string]: TiltState } = {};
   flipped: { [key: string]: boolean } = {};
 
-  /** Iconos con fondo oscuro → convertir a blanco */
+  // NUEVO SISTEMA DE ANIMACIONES
+  tiltStyles: { [key: string]: any } = {};
+  spotlightStyles: { [key: string]: any } = {};
+
+  /** Iconos que necesitan modo blanco */
   darkIcons = [
     'GitHub',
     'Git',
@@ -76,41 +73,28 @@ skills: SkillCategory[] = [];
     return !!this.flipped[skillName];
   }
 
-  onTilt(event: MouseEvent, skillName: string) {
-    const card = event.currentTarget as HTMLElement;
-    const rect = card.getBoundingClientRect();
+  // 🔥 NUEVA ANIMACIÓN DE TILT + SPOTLIGHT
+  onTilt(event: MouseEvent, name: string) {
+    const card = (event.currentTarget as HTMLElement).getBoundingClientRect();
+    const x = event.clientX - card.left;
+    const y = event.clientY - card.top;
 
-    const x = event.clientX - rect.left;
-    const y = event.clientY - rect.top;
-    const centerX = rect.width / 2;
-    const centerY = rect.height / 2;
+    const rotX = ((y - card.height / 2) / 12);
+    const rotY = ((card.width / 2 - x) / 12);
 
-    const rotateX = ((y - centerY) / centerY) * -10;
-    const rotateY = ((x - centerX) / centerX) * 10;
-
-    this.tiltStates[skillName] = { rotX: rotateX, rotY: rotateY };
-    this.spotlightPositions[skillName] = { x, y };
-  }
-
-  resetTilt(skillName: string) {
-    delete this.tiltStates[skillName];
-  }
-
-  resetSpotlight(skillName: string) {
-    delete this.spotlightPositions[skillName];
-  }
-
-  getTiltStyle(skillName: string) {
-    const tilt = this.tiltStates[skillName];
-
-    if (!tilt) {
-      return {
-        transform: 'rotateX(0deg) rotateY(0deg)'
-      };
-    }
-
-    return {
-      transform: `rotateX(${tilt.rotX}deg) rotateY(${tilt.rotY}deg)`
+    this.tiltStyles[name] = {
+      transform: `rotateX(${rotX}deg) rotateY(${rotY}deg)`
     };
+
+    this.spotlightStyles[name] = {
+      background: `radial-gradient(circle 90px at ${x}px ${y}px,
+        rgba(61,139,255,0.28),
+        transparent 70%)`
+    };
+  }
+
+  resetTilt(name: string) {
+    this.tiltStyles[name] = { transform: 'rotateX(0deg) rotateY(0deg)' };
+    this.spotlightStyles[name] = {};
   }
 }

@@ -41,7 +41,6 @@ export class Hero implements AfterViewInit{
 
     const cursor = document.createElement('span');
     cursor.classList.add('cursor');
-    cursor.textContent = '|';
     element.after(cursor);
 
     let i = 0;

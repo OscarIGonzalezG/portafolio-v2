@@ -1,13 +1,13 @@
-<section id="skills" class="py-24 bg-secondary px-6">
+<section id="skills" class="py-30 bg-secondary px-6">
   <div class="max-w-6xl mx-auto text-center">
 
     <h2 class="text-4xl md:text-5xl heading mb-4">Habilidades</h2>
+
     <p class="text-secondary max-w-2xl mx-auto mb-10 text-sm md:text-base">
-      Tecnologías y herramientas que utilizo para construir soluciones web completas,
-      desde el frontend hasta el backend y el flujo de trabajo diario.
+      Tecnologías y herramientas que utilizo para construir soluciones web completas.
     </p>
 
-    <!-- Filtros -->
+    <!-- FILTROS -->
     <div class="flex flex-wrap justify-center gap-3 mb-12">
 
       <button
@@ -34,60 +34,44 @@
 
     </div>
 
-    <!-- Grid -->
+    <!-- GRID -->
     <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-8 justify-items-center">
 
       <div
         *ngFor="let skill of filteredSkills"
-        class="flip-card skill-fade-in"
+        class="flip-card skill-fade"
         [ngClass]="{ 'flipped': isFlipped(skill.name) }"
-        [ngStyle]="getTiltStyle(skill.name)"
+        [ngStyle]="tiltStyles[skill.name]"
         (click)="toggleFlip(skill.name)"
         (mousemove)="onTilt($event, skill.name)"
-        (mouseleave)="resetTilt(skill.name); resetSpotlight(skill.name)"
+        (mouseleave)="resetTilt(skill.name)"
       >
 
         <div class="flip-inner">
 
-          <!-- ======================= -->
-          <!--          F R E N T E    -->
-          <!-- ======================= -->
+          <!-- FRENTE -->
           <div class="flip-front">
 
-            <!-- ⭐ Spotlight FUERA del inner -->
-            <div
-              class="spotlight"
-              [ngStyle]="{
-                'background': spotlightPositions[skill.name]
-                  ? 'radial-gradient(circle 95px at '
-                    + spotlightPositions[skill.name].x + 'px '
-                    + spotlightPositions[skill.name].y + 'px, rgba(61,139,255,0.32), transparent 80%)'
-                  : 'none',
-                'opacity': spotlightPositions[skill.name] ? '1' : '0'
-              }"
-            ></div>
+            <div class="spotlight" [ngStyle]="spotlightStyles[skill.name]"></div>
 
-            <!-- Contenido frontal -->
             <div class="skill-card-inner">
 
-              <img
-                [src]="'assets/icons/' + skill.icon"
-                [alt]="skill.name"
-                class="skill-icon"
-                [ngClass]="{ 'force-white': isDarkIcon(skill.name) }"
-              />
+              <div class="skill-icon-wrapper">
+                <img
+                  [src]="'assets/icons/' + skill.icon"
+                  [alt]="skill.name"
+                  class="skill-icon-img"
+                  [ngClass]="{ 'force-white': isDarkIcon(skill.name) }"
+                />
+              </div>
 
-              <span class="skill-name">
-                {{ skill.name }}
-              </span>
+              <span class="skill-name">{{ skill.name }}</span>
 
             </div>
 
           </div>
 
-          <!-- ======================= -->
-          <!--        R E V E R S O     -->
-          <!-- ======================= -->
+          <!-- REVERSO -->
           <div class="flip-back">
             <p class="skill-description">{{ skill.description }}</p>
           </div>

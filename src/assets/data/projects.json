@@ -1,26 +1,43 @@
 [
   {
     "id": 1,
-    "title": "Gestor de Inventario Solidario",
-    "description": "Aplicación web para administrar donaciones y alfolíes, con control de usuarios y reportes.",
-    "image": "assets/proyecto-inventario.png",
-    "github": "https://github.com/tuusuario/inventario-solidario",
-    "demo": "https://demo.com/inventario-solidario"
+    "title": "To-Do List",
+    "description": "Pequeño proyecto de lista de tareas para practicar desarrollo Front-End.",
+    "image": "assets/images/projects/1/todolist.jpg",
+    "github": "https://oscarigonzalezg.github.io/To-Do-List-proyect/",
+    "demo": "https://oscarigonzalezg.github.io/To-Do-List-proyect/",
+    "tech": ["html5", "css3", "javascript"],
+    "gallery": [
+      { "full": "assets/images/projects/1/gallery/1.jpg", "thumb": "assets/images/projects/1/gallery/1.jpg" },
+      { "full": "assets/images/projects/1/gallery/2.jpg", "thumb": "assets/images/projects/1/gallery/2.jpg" },
+      { "full": "assets/images/projects/1/gallery/3.jpg", "thumb": "assets/images/projects/1/gallery/3.jpg" }
+    ]
   },
   {
     "id": 2,
-    "title": "Portafolio Web Personal",
-    "description": "Landing page moderna construida con Angular y Tailwind, con sección de proyectos y contacto.",
-    "image": "assets/proyecto-portafolio.png",
-    "github": "https://github.com/tuusuario/portafolio-web",
-    "demo": "https://tuportafolio.com"
+    "title": "Inicio de Sesión y Registro",
+    "description": "Interfaz moderna de Login y Registro creada con HTML, CSS y JavaScript.",
+    "image": "assets/images/projects/2/login.png",
+    "github": "https://oscarigonzalezg.github.io/pLogin_sesion/",
+    "demo": "https://oscarigonzalezg.github.io/pLogin_sesion/",
+    "tech": ["html5", "css3", "javascript"],
+    "gallery": [
+      { "full": "assets/images/projects/2/gallery/1.png", "thumb": "assets/images/projects/2/gallery/1.png" },
+      { "full": "assets/images/projects/2/gallery/2.png", "thumb": "assets/images/projects/2/gallery/2.png" }
+    ]
   },
   {
     "id": 3,
-    "title": "Juego 2D Pixel Art",
-    "description": "Juego en 2D con gráficos pixel art, controles intuitivos y animaciones personalizadas.",
-    "image": "assets/proyecto-juego.png",
-    "github": "https://github.com/tuusuario/juego-2d",
-    "demo": "https://demo.com/juego-2d"
+    "title": "API REST • Tienda Online (Backend)",
+    "description": "API RESTful para tienda de ropa, desarrollada con Java Spring Boot y PostgreSQL.",
+    "image": "assets/images/projects/3/api-tienda.png",
+    "github": "https://github.com/OscarIGonzalezG/TiendaRopa_BackEnd",
+    "demo": "",
+    "tech": ["java", "spring", "postgresql"],
+    "gallery": [
+      { "full": "assets/images/projects/3/gallery/1.jpg", "thumb": "assets/images/projects/3/gallery/1.jpg" },
+      { "full": "assets/images/projects/3/gallery/2.jpg", "thumb": "assets/images/projects/3/gallery/2.jpg" },
+      { "full": "assets/images/projects/3/gallery/3.jpg", "thumb": "assets/images/projects/3/gallery/3.jpg" }
+    ]
   }
 ]

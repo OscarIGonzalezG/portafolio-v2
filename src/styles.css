@@ -1,7 +1,8 @@
 @import "tailwindcss";
 
-/* ============================= */
-/* ===== Paleta base ===== */
+/* ========================= */
+/* ===== PALETA BASE ======= */
+/* ========================= */
 :root {
   --primary-bg:#0D0F18;
   --secondary-bg:#141627;
@@ -15,8 +16,9 @@
   --body-font:'Inter', sans-serif;
 }
 
-/* ============================= */
-/* ===== Base global ===== */
+/* ========================= */
+/* ===== BASE GLOBAL ======= */
+/* ========================= */
 body {
   font-family:var(--body-font);
   color:var(--text-color);
@@ -24,49 +26,165 @@ body {
   line-height:1.7;
   -webkit-font-smoothing:antialiased;
 }
+
 html { scroll-behavior:smooth; }
 
-.text-primary { color:var(--text-color); }
+.text-primary   { color:var(--text-color); }
 .text-secondary { color:var(--subtext-color); }
+.text-accent    { color:var(--accent-blue); }
 
-/* ============================= */
-/* ===== NAVBAR ===== */
+.bg-primary   { background-color:var(--primary-bg); }
+.bg-secondary { background-color:var(--secondary-bg); }
+
+/* Títulos */
+h1,h2,h3,h4,h5,h6 {
+  font-family:var(--heading-font);
+  color:var(--text-color);
+}
+
+/* ========================= */
+/* ===== ANIMACIONES ======= */
+/* ========================= */
+@keyframes fadeIn {
+  0% { opacity:0; transform:translateY(10px); }
+  100% { opacity:1; transform:translateY(0); }
+}
+.animate-fadeInUp { animation:fadeIn .8s ease-out forwards; }
+
+/* Cursor typewriter */
+.cursor {
+  width:3px;
+  height:1em;
+  background:var(--accent-blue);
+  animation:blinkCursor .8s infinite;
+}
+@keyframes blinkCursor {
+  0%,49%{opacity:1}
+  50%,100%{opacity:0}
+}
+
+/* ========================= */
+/* ======= NAVBAR ========== */
+/* ========================= */
 nav.backdrop-blur-md {
-  backdrop-filter: blur(18px);
-  background-color: rgba(13, 15, 24, 0.75);
-  border: 1px solid rgba(255,255,255,0.05);
+  backdrop-filter:blur(18px);
+  background-color:rgba(13,15,24,0.75);
+  border:1px solid rgba(255,255,255,0.05);
+  transition:0.3s;
 }
 
-/* ============================= */
-/* ===== HERO (sin cambios) ===== */
-/* — OMITIDO PARA NO HACERTE UN ARCHIVO ETERNO —
-   El problema NO está en el hero. */
-
-/* ============================= */
-/* ===== ABOUT (sin cambios) ===== */
-#about img {
-  filter:brightness(0.95) contrast(1.05);
-  border-radius:9999px;
+@media (max-width:768px) {
+  nav.backdrop-blur-md {
+    background-color:#0D0F18!important;
+    backdrop-filter:none!important;
+    border:none;
+  }
 }
 
-/* ============================= */
-/* ========== SKILLS =========== */
-
-#skills {
-  scroll-margin-top: 96px;
+.nav-glow:hover {
+  box-shadow:0 10px 35px rgba(61,139,255,0.4);
 }
 
-/* Animación entrada */
+/* Links */
+.menu-link-simple {
+  position:relative;
+  display:inline-block;
+  padding-bottom:2px;
+  font-weight:500;
+  color:var(--text-color);
+}
+.menu-link-simple::after {
+  content:'';
+  position:absolute;
+  height:2px;
+  width:0%;
+  bottom:0; left:0;
+  background:var(--accent-blue);
+  transition:.3s;
+}
+.menu-link-simple:hover::after { width:100%; }
+
+/* ========================= */
+/* ========= HERO =========== */
+/* ========================= */
+.hero-bg {
+  position:absolute;
+  inset:0;
+  z-index:0;
+  background:linear-gradient(135deg,#0b1221,#19335c,#27569e,#0b1221);
+  background-size:300% 300%;
+  animation:auroraFlow 18s ease-in-out infinite;
+}
+
+.hero-rays {
+  position:absolute;
+  inset:0;
+  z-index:1;
+  background-image:
+    repeating-linear-gradient(115deg, transparent 0 40px, rgba(61,139,255,.4) 42px, transparent 120px),
+    repeating-linear-gradient(245deg, transparent 0 36px, rgba(255,139,62,.5) 38px, transparent 112px);
+  animation:raysScroll 12s linear infinite, raysPulse 1.85s infinite;
+  filter:drop-shadow(0 0 12px rgba(61,139,255,.3));
+}
+
+.hero-light {
+  position:absolute;
+  inset:0;
+  z-index:2;
+  background:
+    radial-gradient(circle at 25% 30%, rgba(61,139,255,.45), transparent 60%),
+    radial-gradient(circle at 72% 70%, rgba(255,139,62,.35), transparent 70%);
+  filter:blur(90px);
+  opacity:0.9;
+  animation:lightFlow 9s ease-in-out infinite alternate;
+}
+
+#networkCanvas {
+  position:absolute;
+  inset:0;
+  z-index:1;
+  opacity:.9;
+}
+
+/* Hero animations */
+@keyframes auroraFlow {
+  0%{background-position:0 50%}
+  50%{background-position:100% 50%}
+  100%{background-position:0 50%}
+}
+@keyframes raysScroll { 0%{background-position:0 0} 100%{background-position:200% 200%} }
+@keyframes raysPulse { 0%,100%{opacity:.55} 50%{opacity:.95} }
+@keyframes lightFlow {
+  0%{transform:scale(1)}
+  50%{transform:scale(1.06)}
+  100%{transform:scale(1)}
+}
+
+/* ========================= */
+/* ========= ABOUT ========== */
+/* ========================= */
+#about img { filter:brightness(.95) contrast(1.05); }
+#about .group:hover img { transform:scale(1.08); }
+#about .group:hover { box-shadow:0 0 25px rgba(61,139,255,.4); }
+
+/* ========================= */
+/* ========= SKILLS ========= */
+/* ========================= */
+
+/* Sección skills: margen para scroll */
+#skills { scroll-margin-top:96px; }
+
+/* Animación entrada cards */
 @keyframes skillFadeSlide {
   0% { opacity:0; transform:translateY(18px); }
   100% { opacity:1; transform:translateY(0); }
 }
-.skill-fade-in {
+#skills .skill-fade-in {
   animation: skillFadeSlide .65s ease-out forwards;
 }
 
-/* Filtros */
-.skill-filter {
+/* Filtros (chips) */
+#skills .skill-filter {
   display:flex;
   align-items:center;
   padding:8px 16px;
@@ -76,39 +194,38 @@ nav.backdrop-blur-md {
   cursor:pointer;
   transition:.25s;
 }
-.skill-filter.active {
+#skills .skill-filter span {
+  color:var(--text-color);
+}
+#skills .skill-filter.active {
   background:rgba(61,139,255,0.40);
   border-color:rgba(61,139,255,0.85);
 }
 
-/* =========================================== */
-/*              TARJETAS SKILLS                */
-/* =========================================== */
-
-.flip-card {
+/* Contenedor card (clickable + tilt) */
+#skills .flip-card {
   width:130px;
   height:130px;
   perspective:800px;
   cursor:pointer;
   transition:transform .18s ease-out;
-  overflow:hidden; /* BLOQUEA CUALQUIER BORDE */
 }
 
-.flip-inner {
+/* 3D flip interno */
+#skills .flip-inner {
   width:100%;
   height:100%;
   position:relative;
   transition:transform .6s ease;
   transform-style:preserve-3d;
 }
-
-.flip-card.flipped .flip-inner {
+#skills .flip-card.flipped .flip-inner {
   transform:rotateY(180deg);
 }
 
 /* Caras */
-.flip-front,
-.flip-back {
+#skills .flip-front,
+#skills .flip-back {
   position:absolute;
   inset:0;
   border-radius:18px;
@@ -116,32 +233,30 @@ nav.backdrop-blur-md {
   display:flex;
   justify-content:center;
   align-items:center;
-  overflow:hidden; /* ANTI-BORDES */
-}
-
-/* =========================================== */
-/*        ★ FRENTE FINAL SIN HALO ★            */
-/* =========================================== */
-.flip-front {
-  background: rgba(20,22,39,0.95); /* FONDO LIMPIO SIN HALO */
+  overflow:hidden;
+  background:#151726;
   border:1px solid rgba(255,255,255,0.06);
 }
 
-/* =========================================== */
-/*                 REVERSO                     */
-/* =========================================== */
-.flip-back {
-  transform:rotateY(180deg);
-  background:linear-gradient(135deg,
-    rgba(61,139,255,0.45),
-    rgba(0,210,255,0.40),
-    rgba(255,139,62,0.35)
-  );
-  border:1px solid rgba(255,255,255,0.15);
+/* Frente */
+#skills .flip-front {
+  z-index:1;
 }
 
-/* Contenido */
-.skill-card-inner {
+/* Spotlight en hover */
+#skills .spotlight {
+  position:absolute;
+  inset:0;
+  pointer-events:none;
+  border-radius:inherit;
+  mix-blend-mode:screen;
+  transition:opacity .2s ease-out;
+}
+
+/* Contenido frente */
+#skills .skill-card-inner {
+  position:relative;
+  z-index:2;
   display:flex;
   flex-direction:column;
   align-items:center;
@@ -149,26 +264,50 @@ nav.backdrop-blur-md {
   gap:8px;
 }
 
-/* Ícono */
-.skill-icon {
-  width:42px;
-  height:42px;
-  transition:.25s ease;
-  filter: drop-shadow(0 0 6px rgba(61,139,255,0.35));
+/* Icon wrapper */
+#skills .skill-icon-wrapper {
+  width:auto;
+  height:auto;
+  border-radius:0;
+  background:none !important;
+  box-shadow:none !important;
+  padding:0 !important;
+  display:flex;
+  align-items:center;
+  justify-content:center;
 }
-.flip-card:hover .skill-icon { transform:scale(1.10); }
 
-.skill-name {
+/* Icono de skill */
+#skills .skill-icon-img {
+  width:32px;
+  height:32px;
+  object-fit:contain;
+  transition:transform .25s ease;
+  filter:drop-shadow(0 0 6px rgba(0,0,0,.7));
+}
+#skills .flip-card:hover .skill-icon-img {
+  transform:scale(1.08);
+}
+
+/* Texto nombre */
+#skills .skill-name {
   font-size:12px;
   color:var(--subtext-color);
   text-align:center;
 }
 
+/* Reverso */
+#skills .flip-back {
+  transform:rotateY(180deg);
+  padding:10px;
+}
+
 /* Descripción */
-.skill-description {
+#skills .skill-description {
   font-size:11px;
   line-height:1.4;
   text-align:center;
+  color:var(--subtext-color);
   padding:4px;
   display:-webkit-box;
   -webkit-line-clamp:4;
@@ -177,18 +316,363 @@ nav.backdrop-blur-md {
   overflow:hidden;
 }
 
-/* Spotlight FUERA del inner → no afecta bordes */
-.spotlight {
-  position:absolute;
-  inset:0;
-  pointer-events:none;
-  border-radius:inherit;
-  overflow:hidden;
-  transition:opacity .2s ease;
+/* Iconos con fondo oscuro → blancos */
+.force-white {
+  filter: invert(1) brightness(1.7) !important;
 }
 
-/* Responsive */
+/* Responsive skills */
 @media (max-width:768px) {
-  .flip-card { width:115px; height:115px; }
-  .skill-icon { width:36px; height:36px; }
+  #skills .flip-card { width:115px; height:115px; }
+  #skills .skill-icon-wrapper { width:46px; height:46px; }
+  #skills .skill-icon-img { width:28px; height:28px; }
 }
+
+/* ================================ */
+/*       PROJECTS (PORTAFOLIO)     */
+/* ================================ */
+
+#projects {
+  scroll-margin-top:96px;
+}
+
+/* Contenedor externo: SOLO perspectiva (3D) */
+#projects .project-card {
+  position: relative;
+  perspective: 900px;
+  transform-style: preserve-3d;
+}
+
+/* Tarjeta real que rota / tiene borde / fondo */
+#projects .project-tilt {
+  border-radius: 14px;
+  overflow: hidden;
+  background: #0d0f18;
+  border: 1px solid rgba(255,255,255,0.06);
+  transition:
+    transform .25s ease,
+    box-shadow .35s ease,
+    border-color .35s ease;
+  transform-style: preserve-3d;
+  will-change: transform;
+}
+
+/* Hover: tilt + glow sobre TODA la tarjeta */
+#projects .project-card:hover .project-tilt {
+  transform: translateY(-4px) scale(1.025);
+  box-shadow: 0 0 20px rgba(61, 139, 255, 0.25);
+  border-color: rgba(61, 139, 255, 0.6);
+}
+
+/* Imagen */
+#projects .project-img {
+  width:100%;
+  height:100%;
+  object-fit:cover;
+  object-position:center;
+  transition: transform .45s ease, filter .45s ease;
+}
+#projects .project-card:hover .project-img {
+  transform: scale(1.10);
+  filter: brightness(1.12);
+}
+
+/* Caja de tecnologías (arriba izquierda) */
+#projects .tech-box {
+  display:flex;
+  gap:12px;
+  position:absolute;
+  top:1rem;
+  left:1rem;
+  z-index:20;
+  opacity:0;
+  transition:opacity .4s ease;
+  pointer-events:none;
+}
+#projects .project-card:hover .tech-box {
+  opacity:1;
+}
+
+/* Iconos de tecnologías */
+#projects .tech-icon {
+  width:50px;
+  height:50px;
+  opacity:0;
+  animation:staggerFadeUp .45s ease forwards;
+  filter:drop-shadow(0 0 6px rgba(0,0,0,.6));
+  transition:transform .25s ease, filter .25s ease;
+}
+#projects .tech-icon:hover {
+  transform:scale(1.15);
+  filter:brightness(1.2);
+}
+
+/* Animación stagger reutilizada para projects */
+@keyframes staggerFadeUp {
+  0% { opacity:0; transform:translateY(8px); }
+  100% { opacity:1; transform:translateY(0); }
+}
+
+/* Descripción en hover (abajo) */
+#projects .project-desc {
+  position:absolute;
+  inset:0;
+  display:flex;
+  align-items:end;
+  padding:1.5rem;
+  opacity:0;
+  background:linear-gradient(to top,
+    rgba(0,0,0,.70),
+    rgba(0,0,0,.20),
+    transparent
+  );
+  transition:opacity .45s ease, transform .45s ease;
+  transform:translateY(8px);
+  z-index:20;
+}
+#projects .project-card:hover .project-desc {
+  opacity:1;
+  transform:translateY(0);
+}
+
+/* Título (la parte de comportamiento al hover) */
+#projects .project-title {
+  opacity:1;
+  transition:opacity .35s ease;
+}
+#projects .project-card:hover .project-title {
+  opacity:0;
+}
+
+
+/* ============================= */
+/*  NORMALIZACIÓN DE TÍTULOS    */
+/* ============================= */
+
+#projects .project-title {
+  font-size: 1.3rem;
+  font-weight: 700;
+  color: var(--text-color);
+  line-height: 1.25;
+
+  /* Fuerza siempre la misma altura */
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+
+  height: 3.2rem; /* <--- AJUSTA AQUÍ (1 o 2 líneas fijas) */
+
+  /* Estilo visual */
+  filter: drop-shadow(0 0 4px rgba(0,0,0,0.8));
+  white-space: normal;
+}
+
+/* Contenedor del título */
+#projects .project-card .p-6 {
+  padding: 1.5rem 1.5rem 1.8rem 1.5rem !important;
+}
+
+
+#projects .project-card {
+  perspective: 900px;
+  transform-style: preserve-3d;
+}
+
+#projects .project-tilt {
+  transition: transform .25s ease, box-shadow .35s ease;
+  transform-style: preserve-3d;
+  will-change: transform;
+}
+
+
+/* Hover sutil para acompañar el tilt */
+#projects .project-card:hover .project-tilt {
+  box-shadow: 0 20px 40px rgba(0,0,0,0.35);
+}
+
+/* ========================= */
+/*   PROJECT DETAIL GALERÍA  */
+/* ========================= */
+
+.detail-section {
+  position: relative;
+  min-height: 100vh;
+  padding: 6rem 0;
+}
+
+#detailParticles {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  opacity: 0.25;
+}
+
+.detail-container {
+  position: relative;
+  z-index: 5;
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 2rem;
+  border-radius: 16px;
+  background: rgba(20, 22, 39, 0.45);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255,255,255,0.06);
+}
+
+/* GALERÍA */
+.gallery-wrapper {
+  position: relative;
+  margin-bottom: 2rem;
+}
+
+.gallery-main {
+  width: 100%;
+  border-radius: 14px;
+  overflow: hidden;
+}
+
+.gallery-main-img {
+  width: 100%;
+  height: 420px;
+  object-fit: cover;
+  border-radius: 12px;
+  box-shadow: 0 0 25px rgba(0, 0, 0, .35);
+}
+
+/* Flechas */
+.gallery-nav {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: rgba(0,0,0,0.4);
+  border: none;
+  color: white;
+  font-size: 2.2rem;
+  padding: .3rem .8rem;
+  cursor: pointer;
+  border-radius: 8px;
+  transition: .2s;
+  z-index: 20;
+}
+
+.gallery-nav:hover {
+  background: rgba(61,139,255,0.6);
+}
+
+.gallery-nav.left { left: 10px; }
+.gallery-nav.right { right: 10px; }
+
+/* Thumbnails */
+.gallery-thumbs {
+  display: flex;
+  gap: .7rem;
+  margin-top: 1.2rem;
+  overflow-x: auto;
+  padding-bottom: .7rem;
+}
+
+.gallery-thumbs img {
+  width: 100px;
+  height: 70px;
+  object-fit: cover;
+  border-radius: 8px;
+  opacity: .7;
+  cursor: pointer;
+  transition: .2s;
+  border: 2px solid transparent;
+}
+
+.gallery-thumbs img:hover {
+  opacity: 1;
+}
+
+.gallery-thumbs img.active {
+  opacity: 1;
+  border-color: var(--accent-blue);
+}
+
+/* TEXTO */
+.detail-title {
+  font-size: 2.4rem;
+  margin-bottom: 1rem;
+}
+
+.detail-description {
+  color: var(--subtext-color);
+  margin-bottom: 2rem;
+}
+
+.detail-links {
+  display: flex;
+  gap: 1rem;
+  margin-bottom: 2rem;
+}
+
+.detail-btn {
+  padding: .7rem 1.5rem;
+  border-radius: 10px;
+  background: var(--accent-blue);
+  transition: .2s;
+}
+
+.detail-btn:hover {
+  background: var(--accent-hover);
+}
+
+.detail-back {
+  color: var(--accent-blue);
+  text-decoration: none;
+  font-size: 1rem;
+}
+
+.gallery-main-img {
+  border-radius: 14px;
+}
+
+.gallery-nav {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 2rem;
+  padding: 0.2rem 0.7rem;
+  border-radius: 10px;
+  border: none;
+  color: white;
+  background: rgba(0,0,0,0.35);
+  cursor: pointer;
+  transition: 0.2s;
+  z-index: 20;
+}
+
+.gallery-nav:hover {
+  background: rgba(61,139,255,0.7);
+}
+
+.gallery-nav.left { left: 10px; }
+.gallery-nav.right { right: 10px; }
+
+.thumb-img {
+  width: 100px;
+  height: 70px;
+  border-radius: 8px;
+  object-fit: cover;
+  filter: brightness(0.8);
+  opacity: 0.7;
+  cursor: pointer;
+  border: 2px solid transparent;
+  transition: 0.2s;
+}
+
+.thumb-img:hover {
+  opacity: 1;
+  filter: brightness(1);
+}
+
+.thumb-img.active {
+  opacity: 1;
+  filter: brightness(1.1);
+  border-color: var(--accent-blue);
+}
+
