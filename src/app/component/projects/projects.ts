@@ -29,11 +29,12 @@ interface TiltState {
 export class Projects implements OnInit {
 
   projects: Project[] = [];
-  spotlightPositions: { [id: number]: { x: number; y: number } } = {};
   tiltStates: { [id: number]: TiltState } = {};
 
   /* Estado táctil */
-  private isTouching = false;
+  private touchStartY = 0;
+  private touchStartX = 0;
+  private isTiltAllowed = false;
 
   constructor(private http: HttpClient, private router: Router) {}
 
@@ -48,53 +49,57 @@ export class Projects implements OnInit {
   }
 
   /* ============================================================
-      TOUCH START
+        TOUCH START: guardar coordenadas
   ============================================================ */
-  onTouchStart() {
-    this.isTouching = true;
-    document.body.style.overflow = 'hidden';
-    document.body.style.touchAction = 'none';
+  onTouchStart(event: TouchEvent) {
+    const touch = event.touches[0];
+    this.touchStartX = touch.clientX;
+    this.touchStartY = touch.clientY;
+    this.isTiltAllowed = false;
   }
 
   /* ============================================================
-      TOUCH MOVE (TILT)
+       TOUCH MOVE: decidir si scroll o tilt
   ============================================================ */
   onTouchTilt(event: TouchEvent, id: number) {
-    if (!this.isTouching) return;
-
     const touch = event.touches[0];
-    this.handleTilt(touch.clientX, touch.clientY, id, event.currentTarget as HTMLElement);
+    const dx = Math.abs(touch.clientX - this.touchStartX);
+    const dy = Math.abs(touch.clientY - this.touchStartY);
+
+    // 🔥 Si se movió más en vertical que horizontal ⇒ permitir scroll
+    if (dy > dx) {
+      this.isTiltAllowed = false;
+      return; // permitir scroll natural
+    }
+
+    // 🔥 Si se movió más horizontal ⇒ tilt 3D
+    this.isTiltAllowed = true;
+
+    const card = event.currentTarget as HTMLElement;
+    this.handleTilt(touch.clientX, touch.clientY, id, card);
   }
 
   /* ============================================================
-      TOUCH END → soltar tarjeta
+       TOUCH END: pequeño rebote
   ============================================================ */
   onTouchEnd(id: number) {
-    this.isTouching = false;
-
-    this.resetTilt(id);
-
-    document.body.style.overflow = '';
-    document.body.style.touchAction = '';
-
-    // rebote suave
     this.tiltStates[id] = { rotX: 0, rotY: 0 };
     setTimeout(() => this.resetTilt(id), 120);
   }
 
   /* ============================================================
-      MOUSE TILT
+       DESKTOP TILT
   ============================================================ */
   onTilt(event: MouseEvent, id: number) {
     this.handleTilt(event.clientX, event.clientY, id, event.currentTarget as HTMLElement);
   }
 
   /* ============================================================
-     FUNCIÓN BASE PARA AMBOS
+       FUNCIÓN BASE
   ============================================================ */
   private handleTilt(clientX: number, clientY: number, id: number, card: HTMLElement) {
-
     const rect = card.getBoundingClientRect();
+
     const x = clientX - rect.left;
     const y = clientY - rect.top;
     const centerX = rect.width / 2;
@@ -107,14 +112,14 @@ export class Projects implements OnInit {
   }
 
   /* ============================================================
-     RESET
+       RESET
   ============================================================ */
   resetTilt(id: number) {
     delete this.tiltStates[id];
   }
 
   /* ============================================================
-     STYLE
+       STYLE
   ============================================================ */
   getTiltStyle(id: number) {
     const tilt = this.tiltStates[id];
