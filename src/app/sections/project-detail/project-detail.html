@@ -1,19 +1,30 @@
-<section id="project-detail" class="relative min-h-screen text-primary px-6 py-24 overflow-hidden">
+<section id="project-detail"
+  class="relative w-full flex flex-col justify-start items-center text-primary px-6 pt-32 pb-24 overflow-hidden">
 
-  <!-- FONDO HERO (CANVAS) -->
+
+  <!-- FONDO CANVAS -->
   <canvas id="detailCanvas" class="absolute inset-0 w-full h-full"></canvas>
 
-  <div class="relative z-10 max-w-4xl mx-auto bg-[#0d0f18]/80 backdrop-blur-xl rounded-xl
-              shadow-[0_0_25px_rgba(61,139,255,0.25)] overflow-hidden border border-slate-700/40 p-6">
+  <!-- CARD PRINCIPAL -->
+  <div
+    class="relative z-10 max-w-4xl mx-auto bg-[#0d0f18]/80 backdrop-blur-xl rounded-xl
+           shadow-[0_0_25px_rgba(61,139,255,0.25)] overflow-hidden border border-slate-700/40 p-6 
+           mt-24 md:mt-0">
 
     <!-- GALERÍA -->
     <div class="gallery-wrapper relative">
+
+      <!-- Contador -->
+      <div class="gallery-counter" *ngIf="project?.gallery?.length">
+        {{ currentIndex + 1 }} / {{ project!.gallery.length }}
+      </div>
 
       <!-- Imagen principal -->
       <div class="gallery-main rounded-xl overflow-hidden">
         <img
           [src]="selectedImage"
-          class="gallery-main-img w-full h-80 object-cover brightness-110 contrast-125"
+          class="gallery-main-img"
+          [class.fade]="isFading"
         />
       </div>
 
@@ -38,12 +49,8 @@
     <!-- CONTENIDO DEL PROYECTO -->
     <div class="mt-10 flex flex-col gap-6">
 
-      <h2 class="text-4xl font-bold text-accent-blue drop-shadow-xl">{{ project?.title }}</h2>
-
-      <p class="text-secondary leading-relaxed">{{ project?.description }}</p>
-
-      <!-- 🔥 ÍCONOS DE TECNOLOGÍAS -->
-      <div class="flex gap-4 mt-2 items-center">
+      <!-- Íconos de Tecnologías (arriba del título) -->
+      <div class="detail-tech flex gap-4 items-center">
         <img
           *ngFor="let t of project?.tech"
           [src]="'assets/icons/' + t + '.svg'"
@@ -51,37 +58,52 @@
         />
       </div>
 
+      <!-- Título -->
+      <h2 class="detail-title text-4xl font-bold text-accent-blue drop-shadow-xl">
+        {{ project?.title }}
+      </h2>
+
+      <!-- Descripción -->
+      <p class="detail-description text-secondary leading-relaxed">
+        {{ project?.description }}
+      </p>
+
       <!-- Botones -->
-      <div class="flex gap-4 mt-4">
+      <div class="detail-links flex gap-4 mt-6">
+
+        <!-- GitHub botón -->
         <a
           [href]="project?.github"
           target="_blank"
-          class="px-4 py-2 bg-accent-blue rounded-lg text-primary font-semibold
-                 hover:shadow-[0_0_15px_rgba(61,139,255,0.6)]"
+          class="detail-btn-glass flex items-center gap-2"
         >
-          GitHub
+          <img src="assets/icons/github.svg" class="w-5 h-5 filter-white" />
+          <span>GitHub</span>
         </a>
 
+        <!-- Demo botón -->
         <a
           *ngIf="project?.demo"
           [href]="project?.demo"
           target="_blank"
-          class="px-4 py-2 bg-highlight rounded-lg text-primary font-semibold
-                 hover:shadow-[0_0_15px_rgba(255,139,62,0.6)]"
+          class="detail-btn-orange flex items-center gap-2"
         >
-          Demo
+          <img src="assets/icons/external-link.svg" class="w-5 h-5 opacity-90" />
+          <span>Demo</span>
         </a>
+
       </div>
 
+      <!-- BOTÓN VOLVER -->
       <button
         (click)="volverAProjects()"
-        class="mt-6 px-4 py-2 rounded-lg text-accent-blue hover:text-accent-hover transition text-lg font-semibold"
+        class="detail-back-btn flex items-center gap-2 mt-10"
       >
-        ← Volver a Proyectos
+        <img src="assets/icons/arrow-left.svg" class="w-4 h-4 filter-white opacity-80" />
+        Volver a Proyectos
       </button>
 
     </div>
 
   </div>
 </section>
-
