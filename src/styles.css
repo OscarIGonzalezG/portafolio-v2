@@ -593,3 +593,10 @@ nav.backdrop-blur-md {
     object-fit:contain !important;
   }
 }
+
+app-project-detail {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
