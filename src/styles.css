@@ -534,6 +534,42 @@ nav.backdrop-blur-md {
   transform:translateY(-3px) scale(1.03);
 }
 
+.detail-back-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 0.65rem 1.4rem;
+  border-radius: 12px;
+
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.07);
+  backdrop-filter: blur(6px);
+
+  font-size: 0.95rem;
+  color: var(--text-color);
+  transition: 0.25s ease;
+  cursor: pointer;
+}
+
+.detail-back-btn img {
+  width: 18px;
+  height: 18px;
+  filter: invert(1) brightness(1.6);
+  transition: 0.25s ease;
+}
+
+/* Hover Glow */
+.detail-back-btn:hover {
+  background: rgba(61, 139, 255, 0.18);
+  border-color: rgba(61, 139, 255, 0.45);
+  box-shadow: 0 0 16px rgba(61, 139, 255, 0.35);
+  transform: translateY(-2px);
+}
+
+.detail-back-btn:hover img {
+  filter: invert(1) brightness(2);
+}
+
 /* ---- DUPLICADOS DE GALERÍA (MANTENIDOS) ---- */
 .gallery-main-img { border-radius:14px; }
 
@@ -594,9 +630,226 @@ nav.backdrop-blur-md {
   }
 }
 
-app-project-detail {
-  display: block;
-  width: 100%;
-  height: auto;
+/* =============================================================== */
+/* ⭐ FIX TEXTO PROYECTOS — Título se oculta y aparece descripción */
+/* =============================================================== */
+
+#projects .project-desc {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
 }
 
+#projects .project-title {
+  transition: opacity .35s ease, transform .35s ease;
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Ocultar título al hacer hover */
+#projects .project-card:hover .project-title {
+  opacity: 0;
+  transform: translateY(10px);
+}
+
+/* Estilos base de descripción (oculta al inicio) */
+#projects .project-desc p {
+  opacity: 0;
+  transform: translateY(12px);
+  transition: opacity .45s ease, transform .45s ease;
+}
+
+/* Mostrar descripción al hacer hover */
+#projects .project-card:hover .project-desc p {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* ========================================= */
+/*      🔵 Botón real — Volver a Proyectos   */
+/* ========================================= */
+
+.detail-back-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 0.9rem 1.4rem;
+
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 12px;
+  backdrop-filter: blur(6px);
+
+  font-size: 1rem;
+  color: var(--text-color);
+  font-weight: 500;
+
+  cursor: pointer;
+  transition: 0.25s ease;
+}
+
+/* Hover */
+.detail-back-btn:hover {
+  background: rgba(61, 139, 255, 0.15);
+  border-color: rgba(61, 139, 255, 0.45);
+  box-shadow: 0 0 14px rgba(61, 139, 255, 0.35);
+  transform: translateY(-2px);
+}
+
+
+/* =============================================== */
+/*  🌀 Flecha con animación infinita stroke loop   */
+/* =============================================== */
+
+.arrow-cyber path {
+  stroke-dasharray: 60;
+  stroke-dashoffset: 60;
+  animation: arrowDraw 2.2s ease-in-out infinite;
+  color: var(--accent-blue);
+  filter: drop-shadow(0 0 6px #3D8BFF);
+}
+
+@keyframes arrowDraw {
+  0%   { stroke-dashoffset: 60; opacity: 0.2; }
+  40%  { stroke-dashoffset: 0;   opacity: 1; }
+  60%  { stroke-dashoffset: 0;   opacity: 1; }
+  100% { stroke-dashoffset: -60; opacity: 0.2; }
+}
+
+/* =============================================== */
+/*  🌌 Glitch Cyberpunk – vibración digital neon   */
+/* =============================================== */
+
+.arrow-cyber {
+  position: relative;
+}
+
+.arrow-cyber path {
+  animation:
+    arrowDraw 2.2s ease-in-out infinite,
+    glitchShift 1.4s steps(2, end) infinite;
+}
+
+.arrow-cyber::before,
+.arrow-cyber::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: 0;
+  background: none;
+  pointer-events: none;
+}
+
+.arrow-cyber::before {
+  filter: drop-shadow(-2px 0 3px #00FFFFAA);
+  animation: glitchBefore 1.4s infinite;
+}
+
+.arrow-cyber::after {
+  filter: drop-shadow(2px 0 3px #FF2CEA99);
+  animation: glitchAfter 1.4s infinite;
+}
+
+@keyframes glitchShift {
+  0%   { transform: translate(0, 0); }
+  20%  { transform: translate(-1px, 0.5px); }
+  40%  { transform: translate(1px, -1px); }
+  60%  { transform: translate(-0.5px, -1px); }
+  80%  { transform: translate(1px, 1px); }
+  100% { transform: translate(0, 0); }
+}
+
+@keyframes glitchBefore {
+  0%   { opacity: 0; transform: translate(0,0); }
+  50%  { opacity: .25; transform: translate(-2px, -1px); }
+  100% { opacity: 0; transform: translate(0,0); }
+}
+
+@keyframes glitchAfter {
+  0%   { opacity: 0; transform: translate(0,0); }
+  50%  { opacity: .25; transform: translate(2px, 1px); }
+  100% { opacity: 0; transform: translate(0,0); }
+}
+
+/* ============================================================= */
+/*     ✨  Flecha 3D NEÓN con efecto HOLOGRAMA futurista           */
+/* ============================================================= */
+
+.arrow-holo {
+  position: relative;
+  color: var(--accent-blue);
+  filter: drop-shadow(0 0 6px #3D8BFF);
+  animation: holoFloat 3.5s ease-in-out infinite;
+}
+
+/* Glow principal del trazo */
+.arrow-holo path {
+  stroke: var(--accent-blue);
+  filter:
+    drop-shadow(0 0 4px #3D8BFFAA)
+    drop-shadow(0 0 8px #3D8BFF88)
+    drop-shadow(0 0 14px #3D8BFF55);
+  transition: 0.35s ease;
+}
+
+/* Capas holográficas (duplicaciones que se mueven) */
+.arrow-holo::before,
+.arrow-holo::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background: none;
+  border-radius: 0;
+  z-index: -1;
+  filter: blur(12px);
+}
+
+/* Capa superior celeste */
+.arrow-holo::before {
+  box-shadow: 0 0 28px #00D9FFAA;
+  animation: holoShift1 2.4s ease-in-out infinite;
+}
+
+/* Capa inferior púrpura */
+.arrow-holo::after {
+  box-shadow: 0 0 32px #BC4DFFAA;
+  animation: holoShift2 2.4s ease-in-out infinite reverse;
+}
+
+/* Animación flotante holográfica */
+@keyframes holoFloat {
+  0%   { transform: translateY(0px); opacity: .92; }
+  50%  { transform: translateY(-1.8px); opacity: 1; }
+  100% { transform: translateY(0px); opacity: .92; }
+}
+
+/* Ondas holográficas */
+@keyframes holoShift1 {
+  0%   { transform: translateX(0px) scale(1); opacity: .7; }
+  50%  { transform: translateX(-3px) scale(1.05); opacity: .45; }
+  100% { transform: translateX(0px) scale(1); opacity: .7; }
+}
+
+@keyframes holoShift2 {
+  0%   { transform: translateX(0px) scale(1); opacity: .6; }
+  50%  { transform: translateX(3px) scale(1.05); opacity: .35; }
+  100% { transform: translateX(0px) scale(1); opacity: .6; }
+}
+
+/* HOVER — aumento de energía */
+.detail-back-btn:hover .arrow-holo {
+  filter:
+    drop-shadow(0 0 6px #3D8BFF)
+    drop-shadow(0 0 14px #3D8BFFFF)
+    drop-shadow(0 0 22px #3D8BFFAA);
+  transform: translateX(-5px);
+}
+
+.detail-back-btn:hover .arrow-holo path {
+  stroke: var(--accent-hover);
+  filter:
+    drop-shadow(0 0 6px #62A5FFFF)
+    drop-shadow(0 0 14px #62A5FFAA)
+    drop-shadow(0 0 22px #62A5FF88);
+}

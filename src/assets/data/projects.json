@@ -2,7 +2,8 @@
   {
     "id": 1,
     "title": "To-Do List",
-    "description": "Pequeño proyecto de lista de tareas para practicar desarrollo Front-End.",
+    "shortDescription": "Aplicación simple para gestionar tareas, ideal para practicar fundamentos de JavaScript.",
+    "longDescription": "Este proyecto es una To-Do List desarrollada con HTML, CSS y JavaScript puro. Está diseñada para reforzar la manipulación del DOM, manejo de eventos, persistencia de datos con LocalStorage y organización básica de componentes visuales. Incluye funciones para agregar, eliminar y marcar tareas completadas, con una interfaz limpia y responsive.",
     "image": "assets/images/projects/1/todolist.jpg",
     "github": "https://oscarigonzalezg.github.io/To-Do-List-proyect/",
     "demo": "https://oscarigonzalezg.github.io/To-Do-List-proyect/",
@@ -13,10 +14,12 @@
       { "full": "assets/images/projects/1/gallery/3.jpg", "thumb": "assets/images/projects/1/gallery/3.jpg" }
     ]
   },
+
   {
     "id": 2,
     "title": "Inicio de Sesión y Registro",
-    "description": "Interfaz moderna de Login y Registro creada con HTML, CSS y JavaScript.",
+    "shortDescription": "Interfaz moderna de Login y Registro con animaciones suaves y diseño minimalista.",
+    "longDescription": "Este proyecto implementa una interfaz completa de Login y Registro construida con HTML, CSS y JavaScript. La UI sigue un estilo moderno con efectos animados, inputs dinámicos, validación básica y una estructura pensada para integrarse fácilmente con un backend real. Está orientado a practicar diseño UI/UX, animaciones CSS, validaciones y estructuración modular del frontend.",
     "image": "assets/images/projects/2/login.png",
     "github": "https://oscarigonzalezg.github.io/pLogin_sesion/",
     "demo": "https://oscarigonzalezg.github.io/pLogin_sesion/",
@@ -26,10 +29,12 @@
       { "full": "assets/images/projects/2/gallery/2.png", "thumb": "assets/images/projects/2/gallery/2.png" }
     ]
   },
+
   {
     "id": 3,
     "title": "API REST • Tienda Online (Backend)",
-    "description": "API RESTful para tienda de ropa, desarrollada con Java Spring Boot y PostgreSQL.",
+    "shortDescription": "API REST para una tienda online, construida con Spring Boot y PostgreSQL.",
+    "longDescription": "Backend completo de una tienda online de ropa desarrollado con Java Spring Boot siguiendo buenas prácticas de arquitectura REST. Incluye gestión de productos, categorías, usuarios y autenticación mediante JWT. La base de datos está implementada en PostgreSQL, con mapeo JPA/Hibernate y controladores organizados para escalabilidad. Es un proyecto pensado para fortalecer conocimientos en APIs, modelos relacionales, servicios, controladores y seguridad backend.",
     "image": "assets/images/projects/3/api-tienda.png",
     "github": "https://github.com/OscarIGonzalezG/TiendaRopa_BackEnd",
     "demo": "",

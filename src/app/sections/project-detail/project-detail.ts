@@ -12,7 +12,8 @@ interface ProjectImage {
 interface Project {
   id: number;
   title: string;
-  description: string;
+  shortDescription: string;
+  longDescription: string;
   image: string;
   github: string;
   demo: string;
@@ -105,7 +106,12 @@ export class ProjectDetail implements OnInit, AfterViewInit {
 
   ngAfterViewInit(): void {
     this.startCanvas();
+
+        setTimeout(() => {
+      window.scrollTo({ top: 0, behavior: 'instant' as ScrollBehavior });
+    }, 0);
   }
+  
 
   private startCanvas() {
     const canvas = this.el.nativeElement.querySelector('#detailCanvas') as HTMLCanvasElement;
