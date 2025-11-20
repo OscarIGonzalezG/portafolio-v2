@@ -9,53 +9,23 @@ import { CommonModule } from '@angular/common';
   templateUrl: './hero.html',
   styleUrls: ['./hero.css']
 })
-export class Hero implements AfterViewInit{
+export class Hero implements AfterViewInit {
+
   private ctx!: CanvasRenderingContext2D;
   private particles: { x: number; y: number; vx: number; vy: number }[] = [];
   private mouse = { x: 0, y: 0 };
   private readonly numParticles = 100;
   private readonly maxDistance = 130;
 
-  // ⚙️ Velocidad de escritura (ms por carácter)
-  private typingSpeed = 38;
-
   constructor(private el: ElementRef) {}
 
   ngAfterViewInit(): void {
-    // Título con typewriter, párrafo ya está visible
-    setTimeout(() => {
-      this.typeOnce('Hola, soy Oscar González');
-    }, 50);
-
     // Canvas
     const canvas = this.el.nativeElement.querySelector('#networkCanvas') as HTMLCanvasElement;
     this.ctx = canvas.getContext('2d')!;
     this.resizeCanvas(canvas);
     this.initParticles(canvas);
     requestAnimationFrame(() => this.animate(canvas));
-  }
-
-  // ✍️ Typewriter una sola vez (solo en el título)
-  private typeOnce(text: string) {
-    const element = this.el.nativeElement.querySelector('.typewriter') as HTMLElement;
-
-    const cursor = document.createElement('span');
-    cursor.classList.add('cursor');
-    element.after(cursor);
-
-    let i = 0;
-    const type = () => {
-      if (i < text.length) {
-        element.textContent += text.charAt(i);
-        i++;
-        setTimeout(type, this.typingSpeed);
-      } else {
-        cursor.classList.add('blink');
-        // pequeño fade-out del cursor
-        setTimeout(() => { cursor.style.opacity = '0'; }, 700);
-      }
-    };
-    type();
   }
 
   private resizeCanvas(canvas: HTMLCanvasElement) {
@@ -92,7 +62,7 @@ export class Hero implements AfterViewInit{
       if (p.x < 0 || p.x > canvas.width) p.vx *= -1;
       if (p.y < 0 || p.y > canvas.height) p.vy *= -1;
 
-      // Nodos
+      // Nodo
       this.ctx.beginPath();
       this.ctx.arc(p.x, p.y, 2, 0, Math.PI * 2);
       this.ctx.fillStyle = 'rgba(61,139,255,0.8)';
@@ -104,7 +74,7 @@ export class Hero implements AfterViewInit{
       for (let j = i + 1; j < this.particles.length; j++) {
         const dx = this.particles[i].x - this.particles[j].x;
         const dy = this.particles[i].y - this.particles[j].y;
-        const dist = Math.sqrt(dx*dx + dy*dy);
+        const dist = Math.sqrt(dx * dx + dy * dy);
         if (dist < this.maxDistance) {
           const opacity = 1 - dist / this.maxDistance;
           this.ctx.strokeStyle = `rgba(255,139,62,${opacity * 0.3})`;
@@ -121,7 +91,7 @@ export class Hero implements AfterViewInit{
     for (const p of this.particles) {
       const dx = p.x - this.mouse.x;
       const dy = p.y - this.mouse.y;
-      const dist = Math.sqrt(dx*dx + dy*dy);
+      const dist = Math.sqrt(dx * dx + dy * dy);
       if (dist < 120) {
         p.vx += dx / dist * 0.01;
         p.vy += dy / dist * 0.01;
@@ -130,4 +100,5 @@ export class Hero implements AfterViewInit{
 
     requestAnimationFrame(() => this.animate(canvas));
   }
+
 }

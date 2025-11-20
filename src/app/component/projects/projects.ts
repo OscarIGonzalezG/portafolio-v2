@@ -7,13 +7,13 @@ import { HttpClient, HttpClientModule } from '@angular/common/http';
 interface Project {
   id: number;
   title: string;
-  description: string;
+  shortDescription: string;
+  longDescription: string;
   image: string;
   github: string;
   demo: string;
   tech: string[];
 }
-
 interface TiltState {
   rotX: number;
   rotY: number;

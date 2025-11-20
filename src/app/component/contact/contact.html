@@ -1,35 +1,164 @@
-<section id="contact" class="py-20 bg-primary text-primary px-6">
-  <div class="max-w-4xl mx-auto text-center">
+<section id="contact" class="py-30 bg-primary text-primary px-6">
+  <div class="max-w-4xl mx-auto text-center relative">
+
+    <!-- HALO HOLOGRÁFICO -->
+    <div class="contact-halo"></div>
+
     <h2 class="text-4xl heading mb-8">Contacto</h2>
+
     <p class="text-secondary mb-12">
       Si quieres trabajar conmigo o tienes alguna pregunta, ¡no dudes en escribirme!
     </p>
 
-    <!-- Formulario -->
-    <form class="space-y-6 max-w-xl mx-auto">
-      <div>
-        <input type="text" placeholder="Tu nombre"
-          class="w-full p-4 rounded-lg bg-secondary text-primary focus:outline-none focus:ring-2 focus:ring-accent">
+    <!-- FORMULARIO -->
+    <form [formGroup]="contactForm" (ngSubmit)="onSubmit()" class="space-y-6 max-w-xl mx-auto">
+
+      <!-- Nombre -->
+      <div class="group text-left">
+        <input
+          type="text"
+          placeholder="Tu nombre"
+          class="form-input w-full"
+          formControlName="name"
+        />
+        <p *ngIf="contactForm.get('name')?.touched && contactForm.get('name')?.invalid"
+           class="input-error">
+          El nombre es obligatorio.
+        </p>
       </div>
-      <div>
-        <input type="email" placeholder="Tu correo"
-          class="w-full p-4 rounded-lg bg-secondary text-primary focus:outline-none focus:ring-2 focus:ring-accent">
+
+      <!-- Email -->
+      <div class="group text-left">
+
+        <input
+          type="email"
+          placeholder="Tu correo"
+          class="form-input w-full"
+          formControlName="email"
+        />
+
+        <!-- Error: formato -->
+        <p *ngIf="contactForm.get('email')?.touched && contactForm.get('email')?.errors?.['email']"
+           class="input-error">
+          Ingresa un correo válido.
+        </p>
+
+        <!-- Error: avanzado -->
+        <p
+          *ngIf="
+            contactForm.get('email')?.touched &&
+            (
+              contactForm.get('email')?.errors?.['invalidDomain'] ||
+              contactForm.get('email')?.errors?.['emailTooShort'] ||
+              contactForm.get('email')?.errors?.['disposablePattern'] ||
+              contactForm.get('email')?.errors?.['suspiciousTld']
+            )
+          "
+          class="input-error">
+          Verifica tu correo, parece no ser válido.
+        </p>
+
       </div>
-      <div>
-        <textarea placeholder="Tu mensaje" rows="5"
-          class="w-full p-4 rounded-lg bg-secondary text-primary focus:outline-none focus:ring-2 focus:ring-accent"></textarea>
+
+      <!-- Mensaje -->
+      <div class="group text-left">
+        <textarea
+          rows="5"
+          placeholder="Tu mensaje"
+          class="form-input w-full min-h-[150px]"
+          formControlName="message"
+        ></textarea>
+        <p *ngIf="contactForm.get('message')?.touched && contactForm.get('message')?.errors?.['minlength']"
+           class="input-error">
+          El mensaje debe tener al menos 10 caracteres.
+        </p>
       </div>
-      <button type="submit"
-        class="px-6 py-3 bg-accent hover:bg-accent-hover rounded-lg text-primary font-semibold transition">
-        Enviar mensaje
+
+      <!-- BOTÓN -->
+      <button
+        type="submit"
+        class="contact-btn w-full md:w-auto flex items-center justify-center gap-3
+               px-7 py-3 rounded-full border-2 border-accent-blue text-accent-blue font-semibold
+               shadow-lg shadow-accent-blue/20 backdrop-blur-sm
+               transition-all duration-300 hover:bg-accent-blue hover:text-primary hover:scale-105 hover:shadow-accent-blue/40"
+        [class.loading]="loading"
+        [disabled]="loading"
+      >
+        <div *ngIf="loading" class="spinner"></div>
+
+        <span>
+          {{ loading ? 'Enviando...' : 'Enviar mensaje' }}
+        </span>
       </button>
+
     </form>
 
-    <!-- Links rápidos -->
-    <div class="flex justify-center gap-6 mt-12">
-      <a href="mailto:tuemail@ejemplo.com" class="hover:text-accent transition">📧 Email</a>
-      <a href="https://github.com/tuusuario" target="_blank" class="hover:text-accent transition">🐙 GitHub</a>
-      <a href="https://linkedin.com/in/tuusuario" target="_blank" class="hover:text-accent transition">💼 LinkedIn</a>
+    <!-- LINKS — estilo uniforme -->
+    <div class="flex justify-center gap-8 mt-14">
+
+      <!-- EMAIL -->
+      <a href="mailto:tuemail@ejemplo.com"
+         class="inline-flex items-center gap-2 px-6 py-2 rounded-full
+                border-2 border-accent-blue text-accent-blue font-semibold
+                shadow-lg shadow-accent-blue/20 backdrop-blur-sm
+                transition-all duration-300 hover:bg-accent-blue hover:text-primary hover:scale-105 hover:shadow-accent-blue/40">
+        <img src="assets/icons/email.svg" class="w-5 h-5" alt="email icon" />
+        Email
+      </a>
+
+      <!-- GITHUB (blanco con invert) -->
+      <a href="https://github.com/tuusuario" target="_blank"
+         class="inline-flex items-center gap-2 px-6 py-2 rounded-full
+                border-2 border-accent-blue text-accent-blue font-semibold
+                shadow-lg shadow-accent-blue/20 backdrop-blur-sm
+                transition-all duration-300 hover:bg-accent-blue hover:text-primary hover:scale-105 hover:shadow-accent-blue/40">
+        <img src="assets/icons/github.svg" class="w-5 h-5 invert" alt="github icon" />
+        GitHub
+      </a>
+
+      <!-- LINKEDIN (icono blanco) -->
+      <a href="https://linkedin.com/in/tuusuario" target="_blank"
+         class="inline-flex items-center gap-2 px-6 py-2 rounded-full
+                border-2 border-accent-blue text-accent-blue font-semibold
+                shadow-lg shadow-accent-blue/20 backdrop-blur-sm
+                transition-all duration-300 hover:bg-accent-blue hover:text-primary hover:scale-105 hover:shadow-accent-blue/40">
+        <img src="assets/icons/linkedin.svg" class="w-5 h-5 invert" alt="linkedin icon" />
+        LinkedIn
+      </a>
+
+    </div>
+
+  </div>
+
+  <!-- MODAL -->
+  <div *ngIf="modalOpen" class="modal-overlay">
+    <div class="modal-window holo-modal"
+         [class.modal-success]="modalSuccess"
+         [class.modal-error]="!modalSuccess">
+
+      <!-- ÍCONO HOLOGRÁFICO -->
+      <div class="modal-icon-wrapper">
+
+        <!-- ✔ ÉXITO -->
+        <svg *ngIf="modalSuccess" class="modal-icon holo-icon" viewBox="0 0 48 48">
+          <path d="M 12 24 L 20 32 L 36 16"
+                stroke-width="5"
+                stroke-linecap="round"
+                stroke-linejoin="round"></path>
+        </svg>
+
+        <!-- ✖ ERROR -->
+        <svg *ngIf="!modalSuccess" class="modal-icon holo-icon" viewBox="0 0 48 48">
+          <path d="M 16 16 L 32 32 M 32 16 L 16 32"
+                stroke-width="5"
+                stroke-linecap="round"></path>
+        </svg>
+
+      </div>
+
+      <p>{{ modalMessage }}</p>
+      <button (click)="closeModal()" class="modal-btn">Cerrar</button>
     </div>
   </div>
+
 </section>
