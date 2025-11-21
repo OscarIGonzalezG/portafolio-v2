@@ -38,11 +38,8 @@ export class Skills implements OnInit {
   /** Iconos que necesitan modo blanco */
   darkIcons = [
     'GitHub',
-    'Git',
-    'Postman',
-    'Docker',
-    'IntelliJ IDEA',
-    'NPM'
+    'Express'
+
   ];
 
   ngOnInit(): void {

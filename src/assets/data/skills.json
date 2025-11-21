@@ -16,7 +16,9 @@
     "icon": "backend.png",
     "items": [
       { "name": "Java", "icon": "java.svg", "description": "Lenguaje robusto y multiplataforma para sistemas complejos." },
-      { "name": "Spring Boot", "icon": "spring.svg", "description": "Framework que facilita la creación de APIs escalables." }
+      { "name": "Spring Boot", "icon": "spring.svg", "description": "Framework que facilita la creación de APIs escalables." },
+      { "name": "NestJS", "icon": "nestjs.svg", "description": "Framework progresivo para construir APIs Node.js eficientes y mantenibles." },
+      { "name": "Express", "icon": "express.svg", "description": "Framework minimalista y flexible para servicios y APIs con Node.js." }
     ]
   },
   {

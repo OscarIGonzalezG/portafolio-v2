@@ -1,16 +1,45 @@
-<footer class="bg-secondary text-primary py-6 px-6 mt-12">
-  <div class="max-w-6xl mx-auto flex flex-col md:flex-row items-center justify-between gap-4">
-    
-    <!-- Copyright -->
-    <p class="text-sm text-secondary">
-      © {{ currentYear }} Oscar González. Todos los derechos reservados.
+<footer class="footer-glass w-full mt-20 pt-8 pb-4 px-6">
+
+  <div class="max-w-6xl mx-auto flex flex-col md:flex-row items-center justify-between gap-6">
+
+    <!-- LOGO + TEXTO -->
+    <div class="flex items-center gap-3 cursor-pointer">
+      <img src="assets/images/Logo.png"
+           alt="Logo Oscar González"
+           class="w-12 h-12 object-contain drop-shadow-[0_0_10px_rgba(79,151,255,0.6)] hover:scale-110 transition">
+      <div>
+        <p class="text-sm font-semibold text-accent-blue">OscarIG.dev</p>
+        <p class="text-xs text-secondary">
+          Desarrollado con Angular, esfuerzo y mucho café ☕
+        </p>
+      </div>
+    </div>
+
+    <!-- ICONOS SOCIALES (blancos) -->
+    <div class="flex items-center gap-6">
+      <a href="https://github.com/OscarIGonzalezG" target="_blank">
+        <img src="assets/icons/github.svg" class="w-6 h-6 github-white hover:scale-125 transition" alt="GitHub">
+      </a>
+
+      <a href="https://linkedin.com/in/oscar-ignacio-gonzalez-gonzalez-911369171" target="_blank">
+        <img src="assets/icons/linkedin.svg" class="w-6 h-6 linkedin-white hover:scale-125 transition" alt="LinkedIn">
+      </a>
+    </div>
+
+  </div>
+
+  <!-- COPYRIGHT + FLECHA -->
+  <div class="max-w-6xl mx-auto mt-6 flex items-center justify-between border-t border-white/10 pt-4">
+
+    <p class="text-xs text-secondary">
+      © {{ currentYear }} Oscar González — Todos los derechos reservados.
     </p>
 
-    <!-- Links sociales -->
-    <div class="flex gap-6 text-sm">
-      <a href="https://github.com/tuusuario" target="_blank" class="hover:text-accent transition">GitHub</a>
-      <a href="https://linkedin.com/in/tuusuario" target="_blank" class="hover:text-accent transition">LinkedIn</a>
-      <a href="mailto:tuemail@ejemplo.com" class="hover:text-accent transition">Email</a>
-    </div>
+    <!-- Flecha dentro del footer -->
+    <button class="back-to-top" (click)="scrollTo('hero')">
+      ↑
+    </button>
+
   </div>
+
 </footer>
