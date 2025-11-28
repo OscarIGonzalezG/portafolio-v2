@@ -73,5 +73,31 @@
       { "full": "assets/images/projects/4/gallery/12.jpg", "thumb": "assets/images/projects/4/gallery/12.jpg" },
       { "full": "assets/images/projects/4/gallery/13.jpg", "thumb": "assets/images/projects/4/gallery/13.jpg" }
     ]
-  }
+  },
+
+  {
+  "id": 5,
+  "title": "Portafolio Personal v1",
+  "shortDescription": "Mi primer portafolio creado con HTML, CSS y JavaScript puro, enfocado en aprender fundamentos web.",
+  "longDescription": "Este proyecto corresponde a mi primer portafolio personal, desarrollado completamente con HTML5, CSS3 y JavaScript puro. La finalidad fue aprender desde cero cómo construir una web estática presentada de manera limpia y funcional, mostrando quién soy, mis habilidades iniciales y algunos de mis proyectos iniciales. Fue un ejercicio clave para reforzar conceptos como estructura semántica en HTML, estilos responsive con CSS y manipulación básica del DOM con JavaScript. Este portafolio posteriormente evolucionaría hacia versiones más complejas y modernas.",
+  "image": "assets/images/projects/5/portfolioV1.jpg",
+  "github": "https://OscarIGonzalezG.github.io/oscargonzalez/",
+  "demo": "https://OscarIGonzalezG.github.io/oscargonzalez/",
+  "tech": ["html5", "css3", "javascript"],
+  "gallery": [
+    { "full": "assets/images/projects/5/gallery/1.jpg", "thumb": "assets/images/projects/5/gallery/1.jpg" },
+    { "full": "assets/images/projects/5/gallery/2.jpg", "thumb": "assets/images/projects/5/gallery/2.jpg" },
+    { "full": "assets/images/projects/5/gallery/3.jpg", "thumb": "assets/images/projects/5/gallery/3.jpg" },
+    { "full": "assets/images/projects/5/gallery/4.jpg", "thumb": "assets/images/projects/5/gallery/4.jpg" },
+    { "full": "assets/images/projects/5/gallery/5.jpg", "thumb": "assets/images/projects/5/gallery/5.jpg" },
+    { "full": "assets/images/projects/5/gallery/6.jpg", "thumb": "assets/images/projects/5/gallery/6.jpg" },
+    { "full": "assets/images/projects/5/gallery/7.jpg", "thumb": "assets/images/projects/5/gallery/7.jpg" },
+    { "full": "assets/images/projects/5/gallery/8.jpg", "thumb": "assets/images/projects/5/gallery/8.jpg" },
+    { "full": "assets/images/projects/5/gallery/9.jpg", "thumb": "assets/images/projects/5/gallery/9.jpg" },
+    { "full": "assets/images/projects/5/gallery/10.jpg", "thumb": "assets/images/projects/5/gallery/10.jpg" },
+    { "full": "assets/images/projects/5/gallery/11.jpg", "thumb": "assets/images/projects/5/gallery/11.jpg" },
+    { "full": "assets/images/projects/5/gallery/12.jpg", "thumb": "assets/images/projects/5/gallery/12.jpg" }
+  ]
+}
+
 ]
