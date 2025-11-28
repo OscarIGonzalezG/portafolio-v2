@@ -509,11 +509,18 @@ nav.backdrop-blur-md {
 }
 
 .gallery-main-img {
-  width:100%;
-  height:420px;
-  object-fit:cover;
-  border-radius:12px;
-  box-shadow:0 0 25px rgba(0,0,0,.35);
+  width: 100%;
+  height: auto !important;
+  max-height: 70vh !important;
+
+  object-fit: contain !important;
+
+  background-color: #0d0f18;
+  border-radius: 12px;
+  box-shadow: 0 0 25px rgba(0,0,0,.35);
+  display: block;
+  margin: 0 auto;
+  padding: 8px;
 }
 
 /* Flechas */

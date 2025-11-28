@@ -45,9 +45,7 @@
     "demo": "",
     "tech": ["java", "spring", "postgresql"],
     "gallery": [
-      { "full": "assets/images/projects/3/gallery/1.jpg", "thumb": "assets/images/projects/3/gallery/1.jpg" },
-      { "full": "assets/images/projects/3/gallery/2.jpg", "thumb": "assets/images/projects/3/gallery/2.jpg" },
-      { "full": "assets/images/projects/3/gallery/3.jpg", "thumb": "assets/images/projects/3/gallery/3.jpg" }
+      { "full": "assets/images/projects/3/gallery/1.png", "thumb": "assets/images/projects/3/gallery/1.png" }
     ]
   },
 
@@ -73,8 +71,7 @@
       { "full": "assets/images/projects/4/gallery/10.jpg", "thumb": "assets/images/projects/4/gallery/10.jpg" },
       { "full": "assets/images/projects/4/gallery/11.jpg", "thumb": "assets/images/projects/4/gallery/11.jpg" },
       { "full": "assets/images/projects/4/gallery/12.jpg", "thumb": "assets/images/projects/4/gallery/12.jpg" },
-      { "full": "assets/images/projects/4/gallery/13.jpg", "thumb": "assets/images/projects/4/gallery/13.jpg" },
-      { "full": "assets/images/projects/4/gallery/14.jpg", "thumb": "assets/images/projects/4/gallery/14.jpg" }
+      { "full": "assets/images/projects/4/gallery/13.jpg", "thumb": "assets/images/projects/4/gallery/13.jpg" }
     ]
   }
 ]
