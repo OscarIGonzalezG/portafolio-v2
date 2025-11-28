@@ -11,7 +11,12 @@
     "gallery": [
       { "full": "assets/images/projects/1/gallery/1.jpg", "thumb": "assets/images/projects/1/gallery/1.jpg" },
       { "full": "assets/images/projects/1/gallery/2.jpg", "thumb": "assets/images/projects/1/gallery/2.jpg" },
-      { "full": "assets/images/projects/1/gallery/3.jpg", "thumb": "assets/images/projects/1/gallery/3.jpg" }
+      { "full": "assets/images/projects/1/gallery/3.jpg", "thumb": "assets/images/projects/1/gallery/3.jpg" },
+      { "full": "assets/images/projects/1/gallery/4.jpg", "thumb": "assets/images/projects/1/gallery/4.jpg" },
+      { "full": "assets/images/projects/1/gallery/5.jpg", "thumb": "assets/images/projects/1/gallery/5.jpg" },
+      { "full": "assets/images/projects/1/gallery/6.jpg", "thumb": "assets/images/projects/1/gallery/6.jpg" },
+      { "full": "assets/images/projects/1/gallery/7.jpg", "thumb": "assets/images/projects/1/gallery/7.jpg" },
+      { "full": "assets/images/projects/1/gallery/8.jpg", "thumb": "assets/images/projects/1/gallery/8.jpg" }
     ]
   },
 
@@ -43,6 +48,33 @@
       { "full": "assets/images/projects/3/gallery/1.jpg", "thumb": "assets/images/projects/3/gallery/1.jpg" },
       { "full": "assets/images/projects/3/gallery/2.jpg", "thumb": "assets/images/projects/3/gallery/2.jpg" },
       { "full": "assets/images/projects/3/gallery/3.jpg", "thumb": "assets/images/projects/3/gallery/3.jpg" }
+    ]
+  },
+
+  {
+    "id": 4,
+    "title": "Vitrina Vintage",
+    "shortDescription": "Landing page con estilo vintage, productos en tarjetas interactivas y modal animado.",
+    "longDescription": "Vitrina Vintage es una landing page desarrollada con Angular y TailwindCSS, diseñada con una estética retro-vintage. Incluye tarjetas interactivas para productos, un modal animado con efecto pop-in para mostrar información detallada, formulario de contacto funcional mediante EmailJS y alertas personalizadas. El diseño es completamente responsive y se centra en generar una experiencia visual agradable y elegante.",
+    "image": "assets/images/projects/4/vitrina.jpg",
+    "github": "https://github.com/OscarIGonzalezG/landing-vitrina",
+    "demo": "https://oscarigonzalezg.github.io/landing-vitrina/",
+    "tech": ["angular", "tailwind", "typescript"],
+    "gallery": [
+      { "full": "assets/images/projects/4/gallery/1.jpg", "thumb": "assets/images/projects/4/gallery/1.jpg" },
+      { "full": "assets/images/projects/4/gallery/2.jpg", "thumb": "assets/images/projects/4/gallery/2.jpg" },
+      { "full": "assets/images/projects/4/gallery/3.jpg", "thumb": "assets/images/projects/4/gallery/3.jpg" },
+      { "full": "assets/images/projects/4/gallery/4.jpg", "thumb": "assets/images/projects/4/gallery/4.jpg" },
+      { "full": "assets/images/projects/4/gallery/5.jpg", "thumb": "assets/images/projects/4/gallery/5.jpg" },
+      { "full": "assets/images/projects/4/gallery/6.jpg", "thumb": "assets/images/projects/4/gallery/6.jpg" },
+      { "full": "assets/images/projects/4/gallery/7.jpg", "thumb": "assets/images/projects/4/gallery/7.jpg" },
+      { "full": "assets/images/projects/4/gallery/8.jpg", "thumb": "assets/images/projects/4/gallery/8.jpg" },
+      { "full": "assets/images/projects/4/gallery/9.jpg", "thumb": "assets/images/projects/4/gallery/9.jpg" },
+      { "full": "assets/images/projects/4/gallery/10.jpg", "thumb": "assets/images/projects/4/gallery/10.jpg" },
+      { "full": "assets/images/projects/4/gallery/11.jpg", "thumb": "assets/images/projects/4/gallery/11.jpg" },
+      { "full": "assets/images/projects/4/gallery/12.jpg", "thumb": "assets/images/projects/4/gallery/12.jpg" },
+      { "full": "assets/images/projects/4/gallery/13.jpg", "thumb": "assets/images/projects/4/gallery/13.jpg" },
+      { "full": "assets/images/projects/4/gallery/14.jpg", "thumb": "assets/images/projects/4/gallery/14.jpg" }
     ]
   }
 ]
