@@ -102,8 +102,8 @@
   {
     "id": 6,
     "title": "SimpleShop UI • Dashboard",
-    "shortDescription": "🚧 [En Desarrollo] Frontend moderno para gestión SaaS Multi-tenant con Angular 19 y Tailwind.",
-    "longDescription": "Interfaz de usuario profesional desarrollada con **Angular 19** y **TailwindCSS**. Implementa un sistema complejo de Dashboard para gestión de inventarios multi-tienda. Incluye componentes avanzados como tablas de datos con filtros, modales con efecto glassmorphism, gráficos interactivos, sistema de notificaciones Toast y gestión de estado reactiva con Signals. El diseño es totalmente responsive y soporta modo oscuro.",
+    "shortDescription": "🚧 [En Desarrollo] Frontend moderno para gestión SaaS Multi-tenant con Angular 20 y Tailwind.",
+    "longDescription": "Interfaz de usuario profesional desarrollada con **Angular 20** y **TailwindCSS**. Implementa un sistema complejo de Dashboard para gestión de inventarios multi-tienda. Incluye componentes avanzados como tablas de datos con filtros, modales con efecto glassmorphism, gráficos interactivos, sistema de notificaciones Toast y gestión de estado reactiva con Signals. El diseño es totalmente responsive y soporta modo oscuro.",
     "image": "assets/images/projects/6/simpleshop-front.jpg",
     "github": "https://github.com/OscarIGonzalezG/simpleshop-frontend.git",
     "demo": "",
