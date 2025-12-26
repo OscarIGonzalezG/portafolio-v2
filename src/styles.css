@@ -19,6 +19,15 @@
 /* ========================================================================== */
 /*                               🌐 BASE GLOBAL                               */
 /* ========================================================================== */
+
+html, body {
+  width: 100%;
+  overflow-x: hidden; /* ✂️ Corta todo lo que se salga lateralmente */
+  position: relative; /* Asegura el contexto de posicionamiento */
+  margin: 0;
+  padding: 0;
+}
+
 body {
   font-family:var(--body-font);
   color:var(--text-color);
@@ -1327,7 +1336,8 @@ nav.backdrop-blur-md {
   top: 180px;
   left: 50%;
   transform: translateX(-50%);
-  width: 480px;
+  width: 100%;       
+  max-width: 480px;  
   height: 480px;
 
   background:
