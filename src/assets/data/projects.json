@@ -97,7 +97,50 @@
     { "full": "assets/images/projects/5/gallery/10.jpg", "thumb": "assets/images/projects/5/gallery/10.jpg" },
     { "full": "assets/images/projects/5/gallery/11.jpg", "thumb": "assets/images/projects/5/gallery/11.jpg" },
     { "full": "assets/images/projects/5/gallery/12.jpg", "thumb": "assets/images/projects/5/gallery/12.jpg" }
-  ]
-}
+    ]
+  },
+  {
+    "id": 6,
+    "title": "SimpleShop UI • Dashboard",
+    "shortDescription": "🚧 [En Desarrollo] Frontend moderno para gestión SaaS Multi-tenant con Angular 19 y Tailwind.",
+    "longDescription": "Interfaz de usuario profesional desarrollada con **Angular 19** y **TailwindCSS**. Implementa un sistema complejo de Dashboard para gestión de inventarios multi-tienda. Incluye componentes avanzados como tablas de datos con filtros, modales con efecto glassmorphism, gráficos interactivos, sistema de notificaciones Toast y gestión de estado reactiva con Signals. El diseño es totalmente responsive y soporta modo oscuro.",
+    "image": "assets/images/projects/6/simpleshop-front.jpg",
+    "github": "https://github.com/OscarIGonzalezG/simpleshop-frontend.git",
+    "demo": "",
+    "tech": ["angular", "tailwind", "typescript"],
+    "gallery": [
+      { "full": "assets/images/projects/6/gallery/1.jpg", "thumb": "assets/images/projects/6/gallery/1.jpg" },
+      { "full": "assets/images/projects/6/gallery/2.jpg", "thumb": "assets/images/projects/6/gallery/2.jpg" },
+      { "full": "assets/images/projects/6/gallery/3.jpg", "thumb": "assets/images/projects/6/gallery/3.jpg" },
+      { "full": "assets/images/projects/6/gallery/4.jpg", "thumb": "assets/images/projects/6/gallery/4.jpg" },  
+      { "full": "assets/images/projects/6/gallery/5.jpg", "thumb": "assets/images/projects/6/gallery/5.jpg" },
+      { "full": "assets/images/projects/6/gallery/6.jpg", "thumb": "assets/images/projects/6/gallery/6.jpg" }
+    ]
+  },
+  {
+    "id": 7,
+    "title": "SimpleShop API • SaaS Core",
+    "shortDescription": "🚧 [En Desarrollo] Backend robusto Multi-tenant con NestJS, TypeORM y PostgreSQL.",
+    "longDescription": "Núcleo lógico de la plataforma SaaS SimpleShop construido con **NestJS**. Diseñado bajo arquitectura modular y escalable. Implementa autenticación segura (JWT, Guards, Decoradores personalizados), sistema de roles (RBAC), auditoría de seguridad (Logs, Bloqueo de IPs), y gestión de base de datos relacional con **PostgreSQL** y TypeORM. Toda la infraestructura está containerizada con **Docker** para facilitar el despliegue.",
+    "image": "assets/images/projects/7/simpleshop-back.jpg",
+    "github": "https://github.com/OscarIGonzalezG/simpleshop-backend.git",
+    "demo": "",
+    "tech": ["nestjs", "postgresql", "docker", "typescript", "Postman"],
+    "gallery": [
+      { "full": "assets/images/projects/7/gallery/1.jpg", "thumb": "assets/images/projects/7/gallery/1.jpg" },
+      { "full": "assets/images/projects/7/gallery/2.jpg", "thumb": "assets/images/projects/7/gallery/2.jpg" },
+      { "full": "assets/images/projects/7/gallery/3.jpg", "thumb": "assets/images/projects/7/gallery/3.jpg" },  
+      { "full": "assets/images/projects/7/gallery/4.jpg", "thumb": "assets/images/projects/7/gallery/4.jpg" },
+      { "full": "assets/images/projects/7/gallery/5.jpg", "thumb": "assets/images/projects/7/gallery/5.jpg" },
+      { "full": "assets/images/projects/7/gallery/6.jpg", "thumb": "assets/images/projects/7/gallery/6.jpg" },
+      { "full": "assets/images/projects/7/gallery/7.jpg", "thumb": "assets/images/projects/7/gallery/7.jpg" },
+      { "full": "assets/images/projects/7/gallery/8.jpg", "thumb": "assets/images/projects/7/gallery/8.jpg" },
+      { "full": "assets/images/projects/7/gallery/9.jpg", "thumb": "assets/images/projects/7/gallery/9.jpg" },
+      { "full": "assets/images/projects/7/gallery/10.jpg", "thumb": "assets/images/projects/7/gallery/10.jpg" },
+      { "full": "assets/images/projects/7/gallery/11.jpg", "thumb": "assets/images/projects/7/gallery/11.jpg" },
+      { "full": "assets/images/projects/7/gallery/12.jpg", "thumb": "assets/images/projects/7/gallery/12.jpg" },
+      { "full": "assets/images/projects/7/gallery/13.jpg", "thumb": "assets/images/projects/7/gallery/13.jpg" }
+    ]
+  }
 
 ]
