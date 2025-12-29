@@ -39,7 +39,7 @@ Toda la información (habilidades, proyectos, contacto, etc.) se gestiona median
 📧 [ozkrgonzalez1201@gmail.com](mailto:ozkrgonzalez1201@gmail.com)  
 🔗 [LinkedIn](https://linkedin.com/in/oscar-ignacio-gonzalez-gonzalez-911369171)  
 💻 [GitHub](https://github.com/OscarIGonzalezG)  
-🌐 [Portafolio](https://oscarigonzalezg.github.io/oscargonzalez)
+🌐 [Portafolio](https://oscarigdevportfolio.netlify.app/)
 
 ---
 
